@@ -7,17 +7,16 @@ package hr;
  *
  * @author Marco Duarte
  */
-//----------------------------------------------------------------------------//  
 public class FullTimeEmployee extends Employee
 {
-//------CLASS instance VARIABLES
+//------CLASS instance variables
     private double baseSalary;
-
+//----------------------------------------------------------------------------//  
 //------CONSTRUCTORS   
     public FullTimeEmployee(String firstName, String lastName, int age, 
-            String position, double baseSalary)
+            String position, int year, int month, int day, double baseSalary)
     {
-        super(firstName, lastName, age, position);
+        super(firstName, lastName, age, position, year, month, day);
         
         this.baseSalary = getBaseSalary();
     }//------end of full time employee constructor
@@ -27,7 +26,7 @@ public class FullTimeEmployee extends Employee
     public double getBaseSalary()
     {
         return this.baseSalary;
-    }//------//end of get base salary
+    }//------//end of egt base salary
 //------OVERRIDE   
     //------over ride the salary to get the base salary
     @Override

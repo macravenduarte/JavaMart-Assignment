@@ -8,16 +8,16 @@ package hr;
 //----------------------------------------------------------------------------//  
 public class PartTimeEmployee extends Employee
 {  
-//------CLASS instance VARIABLES
+//------CLASS instance variables
     private double hourlyRateSalary;
 //----------------------------------------------------------------------------//  
 //------CONSTRUCTORS    
     //create part time employee constructor
     public PartTimeEmployee
         (String firstName, String lastName, int age, String position, 
-                double hourlyRateSalary)
+                int year, int month, int day, double hourlyRateSalary)
     {
-        super(firstName, lastName, age, position);
+        super(firstName, lastName, age, position, year, month, day);
         
     }//------end of part time employee constructor
 //----------------------------------------------------------------------------//          

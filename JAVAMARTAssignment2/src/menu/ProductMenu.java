@@ -9,14 +9,13 @@ import general.*;
  *
  * @author Marco Duarte
  */
-//----------------------------------------------------------------------------//
 public class ProductMenu 
 {
-
-//------VARIABLES
+/**---------------------------------------------------------------------------*/
+//------Variables
     private static boolean prodBool = true;
     private static int prodInput;
-//----------------------------------------------------------------------------//
+/**---------------------------------------------------------------------------*/
 //------GET Products Menu
     public static void getProductMenu()
     {
@@ -33,14 +32,14 @@ public class ProductMenu
             //------read & assign the product input
             Scanner read = new Scanner(System.in);
             prodInput = Integer.parseInt(read.nextLine());
-//----------------------------------------------------------------------------//
+/**---------------------------------------------------------------------------*/
     //------selection statements
         //------display the product list and details
             if(prodInput==1)
             {
                 System.out.println("Display Product list and details HERE:");
-                //test print
-                System.out.println(myProduct.toString());
+
+                //System.out.println(myProduct.toString()); //test print
             }
         //------enter a new product
             else if(prodInput==2)
@@ -48,7 +47,7 @@ public class ProductMenu
                 System.out.println("Enter a new product here");
 
             }
-//----------------------------------------------------------------------------//
+/**---------------------------------------------------------------------------*/
         //------return to the main menu
             else if(prodInput==0)
             {
@@ -62,8 +61,7 @@ public class ProductMenu
             }
             
         }//-----end of WHILE loop
-//----------------------------------------------------------------------------//       
+/**---------------------------------------------------------------------------*/       
     }//-----end of getProductMenu
-    
-//----------------------------------------------------------------------------//
+/**---------------------------------------------------------------------------*/ 
 }//-----end of ProductMenu class

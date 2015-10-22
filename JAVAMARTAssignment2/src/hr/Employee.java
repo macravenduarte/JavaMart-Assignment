@@ -12,9 +12,9 @@ import java.util.*;
 //----------------------------------------------------------------------------//
 public abstract class Employee 
 {
-//------CLASS instance VARIABLES
+//------CLASS instance variables
     private String firstName, lastName, position;
-    private int empId, age, year, month, day;
+    private int empId, age;
     private Date dateOfHire;
     private static int empCounter;
 //----------------------------------------------------------------------------//  
@@ -26,7 +26,7 @@ public abstract class Employee
 //------constructor with first name, last name, age, position, 
     //------and date (YYYY-MM-DD) of when 'Employee' was hired
     public Employee(String firstName, String lastName, int age, 
-            String position)
+            String position, int year, int month, int day)
     {
         this.firstName = firstName;
         this.lastName = lastName;
