@@ -9,31 +9,32 @@ import java.util.*;
  *
  * @author Marco Duarte
  */
-
+//----------------------------------------------------------------------------//
 //This seasonal employee class extends the employee abstract
-public class SeasonalEmployee extends FullTimeEmployee
+public class SeasonalEmployee extends Employee
 {
-/**---------------------------------------------------------------------------*/
-//------Variables
+
+//------VARIABLES
     //------end of season date for termination    
+    private int termYear, termMonth, termDay;
     private Date seasonTermination;
+    private double baseSalary;
     
-/**---------------------------------------------------------------------------*/    
-//------SeasonalEmployee constructor
+//----------------------------------------------------------------------------//    
+//------CONSTRUCTOR
     public SeasonalEmployee(String firstName, String lastName, int age, 
-            String position, int year, int month, int day,
-            int termYear, int termMonth, int termDay, double baseSalary)
+            String position, double baseSalary)
     {
-        super(firstName, lastName, age, position, year, month, day, baseSalary);
-        
+        super(firstName, lastName, age, position);
+        this.baseSalary = baseSalary;
         //generate a gregorian calender object for the end of season termination date
         GregorianCalendar cal = new GregorianCalendar(termYear, termMonth-1, termDay);
         
         this.seasonTermination = cal.getTime();
     }//------end of Seasonal Employee constructor
     
-/**---------------------------------------------------------------------------*/
-//------methods
+//----------------------------------------------------------------------------//
+//------METHODS
     //------termination date for the seasonal employee
     public void setEndOfSeasonTermination
         (int year, int month, int day, int termYear, int termMonth, int termDay)
@@ -79,11 +80,17 @@ public class SeasonalEmployee extends FullTimeEmployee
         System.out.println(termYear + " " + termMonth +  " " + termDay);
         this.seasonTermination = new Date(termYear, termMonth, termDay);
     }//------
+        
+    public double getBaseSalary()
+    {
+        return this.baseSalary;
+    }//------//end of get base salary
     
     public Date getSeasonTermination()
     {
         return seasonTermination;
     }
+//----------------------------------------------------------------------------//
     //------over ride base salary
     @Override
     public double salary()
@@ -95,8 +102,8 @@ public class SeasonalEmployee extends FullTimeEmployee
     @Override
     public String toString() 
     {
-        return super.toString() + "\nTotal Base Salary:\t" + getBaseSalary()
-                + super.toString() + "\nSeason Termination Date: \t\t" 
+        return super.toString() + "\nTotal Base Salary: \t" + getBaseSalary()
+                + super.toString() + "\nSeasonal Termination Date: \t\t" 
                     + getSeasonTermination();  
     }//------
 /**---------------------------------------------------------------------------*/

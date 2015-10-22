@@ -8,10 +8,11 @@ import hr.*;
  *
  * @author Marco Duarte
  */
+//----------------------------------------------------------------------------//
 public class EmployeeMenu 
 {
-//----------------------------------------------------------------------------//
-//------Variables
+
+//------VARIABLES
     
     private static boolean hrBool = true;
     private static int hrInput;    
@@ -58,7 +59,8 @@ public class EmployeeMenu
 
                 //add test employee
                 //JAVAMART.Employees.add(emp1);
-                addNewEmp();
+                //addNewEmp();
+                menu.addEmployeeSubMenu.addNewEmployee();
             
             }
 //----------------------------------------------------------------------------//
@@ -72,7 +74,7 @@ public class EmployeeMenu
         }//-----end of WHILE loop
     }//------end of GET Employee Menu   
 //----------------------------------------------------------------------------//
-//------methods
+//------METHODS
     //------run a for loop to search through the employee ArrayList 
     //by first and last names
     
@@ -80,22 +82,8 @@ public class EmployeeMenu
                  
     //------Add a new employee to the employee list
     public static void addNewEmp()
-    {
-        Scanner userInput = new Scanner(System.in);
-        String firstName, lastName, position; 
-        int age, year,  month,  day;
-        double baseSalary;
-        
-        firstName = userInput.next();       
-        lastName = userInput.next();
-        position = userInput.next();
-        age = userInput.nextInt();
-        year = userInput.nextInt();
-        month = userInput.nextInt();
-        day = userInput.nextInt();
-        baseSalary = userInput.nextInt();
-        
-        
+    { 
+        menu.addEmployeeSubMenu.addNewEmployee();
         
     }
     
