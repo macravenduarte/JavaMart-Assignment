@@ -21,10 +21,10 @@ public class SeasonalEmployee extends FullTimeEmployee
 /**---------------------------------------------------------------------------*/    
 //------SeasonalEmployee constructor
     public SeasonalEmployee(String firstName, String lastName, int age, 
-            String position, int year, int month, int day,
+            int year, int month, int day,
             int termYear, int termMonth, int termDay, double baseSalary)
     {
-        super(firstName, lastName, age, position, year, month, day, baseSalary);
+        super(firstName, lastName, age, year, month, day, baseSalary);
         
         //generate a gregorian calender object for the end of season termination date
         GregorianCalendar cal = new GregorianCalendar(termYear, termMonth-1, termDay);

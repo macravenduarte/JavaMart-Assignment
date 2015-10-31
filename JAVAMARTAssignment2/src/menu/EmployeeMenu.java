@@ -82,13 +82,12 @@ public class EmployeeMenu
     public static void addNewEmp()
     {
         Scanner userInput = new Scanner(System.in);
-        String firstName, lastName, position; 
+        String firstName, lastName; 
         int age, year,  month,  day;
         double baseSalary;
         
         firstName = userInput.next();       
         lastName = userInput.next();
-        position = userInput.next();
         age = userInput.nextInt();
         year = userInput.nextInt();
         month = userInput.nextInt();

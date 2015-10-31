@@ -41,4 +41,10 @@ public class MenuPrompts
     {
         System.out.println("Invalid input! Please try again");
     }
+    
+    //exiting the porgram
+    public static void getExitMessage()
+    {
+        System.out.println("Thank you for using JAVAMART!\n GoodBye!");
+    }
 }//end of menu prompts class

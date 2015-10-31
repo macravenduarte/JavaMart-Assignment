@@ -13,7 +13,7 @@ import java.util.*;
 public abstract class Employee 
 {
 //------CLASS instance variables
-    private String firstName, lastName, position;
+    private String firstName, lastName;
     private int empId, age;
     private Date dateOfHire;
     private static int empCounter;
@@ -26,12 +26,11 @@ public abstract class Employee
 //------constructor with first name, last name, age, position, 
     //------and date (YYYY-MM-DD) of when 'Employee' was hired
     public Employee(String firstName, String lastName, int age, 
-            String position, int year, int month, int day)
+            int year, int month, int day)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.position = position;
         
         //generate a gregorian calendar object for the date of hire
         GregorianCalendar cal = new GregorianCalendar(year, month-1, day);
@@ -69,12 +68,6 @@ public abstract class Employee
         return age;
     }//------
     
-    //------position
-    public String getPosition()
-    {
-        return position;
-    }//------
-    
     //------date of hire
     public Date getDateOfHire()
     {
@@ -108,7 +101,6 @@ public abstract class Employee
         employeeInfo += "\nName:\t\t" + getFullName();
         employeeInfo += "\nId:\t\t" + getEmpId();
         employeeInfo += "\nAge:\t\t" + getAge();
-        employeeInfo += "\nPosition:\t\t" + getPosition();
         employeeInfo += "\nHire-Date:\t\t" + getDateOfHire();
     
         return employeeInfo;
@@ -136,13 +128,7 @@ public abstract class Employee
             this.age = age;
         }
     }//------
-    
-    //------position
-    public void setPosition(String position)
-    {
-        this.position = position;
-    }//------
-    
+     
     //------Date of hire
     public void setDateOfHire(int year, int month, int day)
     {
