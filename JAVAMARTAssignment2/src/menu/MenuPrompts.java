@@ -36,10 +36,26 @@ public class MenuPrompts
         System.out.println("0: Exit");
     }
 
+    public static void getNewEmployeeMenu()
+    {
+        System.out.println("What type of Employee do you want to create?:");
+        System.out.println("Please enter a choice:");
+        System.out.println("1: Full-time Employee");
+        System.out.println("2: Part-time Employee");
+        System.out.println("3: Seasonal Employee");
+        System.out.println("0: Exit");
+    }
+    
     //invalid input
     public static void getInvalidMessage()
     {
         System.out.println("Invalid input! Please try again");
+    }
+    
+    //exiting a menu selectio
+    public static void getMenuExitMessage()
+    {
+        System.out.println("Exiting back to previous menu options.");
     }
     
     //exiting the porgram

@@ -6,7 +6,7 @@ import java.util.*;
  *
  * @author Marco Duarte
  */
-public class MenuValidation 
+public class MenuValidation extends Validation
 {
     private Scanner userInput = new Scanner(System.in);
     private int menuInput;
@@ -22,18 +22,19 @@ public class MenuValidation
     //GET 
     public int getMenuOpt()
     {
+        
         int newInput;
         
         //run a loop do-while the input is a valid integer
         //have a try catch block for format exception error handling
         do
         {
+            menu.MenuPrompts.getMainMenuMessage();
             try
             {
-                //display the main menu prompt
-                menu.MenuPrompts.getMainMenuMessage();
+
                 newInput = Integer.parseInt(userInput.nextLine());
-                if(newInput > 0 || newInput < 3)
+                if(newInput >= 0 || newInput < 3)
                 {
                     menuInput = newInput;
                     return menuInput;
@@ -41,15 +42,19 @@ public class MenuValidation
             }
             catch(NumberFormatException numberFormat)
             {
-               System.out.println(numberFormat.toString());
-               System.out.println("Error: you must enter a valid integer");
-               validInt = true;
+                System.err.println(numberFormat.toString());
+                System.err.println("Error: you must enter a valid integer.\n");
+                validInt = true;
+                //display the main menu prompt
+                menu.MenuPrompts.getMainMenuMessage();
             }
             catch(Exception generalError)
             {
-                System.out.println(generalError.toString());
-                System.out.println("Error: please contact your system administrator");
+                System.err.println(generalError.toString());
+                System.err.println("Error: Unexpected error.\n");
                 validInt = true;
+                //display the main menu prompt
+                menu.MenuPrompts.getMainMenuMessage();
             }
 
         }while(validInt);

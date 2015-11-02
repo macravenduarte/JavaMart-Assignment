@@ -6,10 +6,17 @@ package general;
  */
 public class ServiceClass 
 {
-    private static int empId = 1000;
+    private static int empId = 1000, prodId = 1000;    
     
+    //employee counter
     public static int getEmpId()
     {
         return empId++;
-    }//end of static constructor
+    }
+    
+    //product counter
+    public static int getProdId()
+    {
+        return prodId++;
+    }
 }//end of service class

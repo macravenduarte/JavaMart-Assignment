@@ -14,7 +14,7 @@ public class MainMenu extends Menu
     private boolean menuBool;
     private int menuInput;
 //------have a private validation object to validate the user
-    private MenuValidation input = new MenuValidation(menuInput);
+    private MenuValidation menuValidation = new MenuValidation(menuInput);
 //----------------------------------------------------------------------------//  
 //------CONSTRUCTOR  
     public MainMenu(boolean menuBool)
@@ -32,7 +32,7 @@ public class MainMenu extends Menu
         while(menuBool)
         {
         //------GET the main menu opt
-            menuInput = input.getMenuOpt();
+            menuInput = menuValidation.getMenuOpt();
            
         //------if input is 1, run the getProductMenu class
             if(menuInput == 1)
