@@ -8,16 +8,24 @@ import hr.*;
  *
  * @author Marco Duarte
  */
-public class EmployeeMenu 
+public class EmployeeMenu extends MainMenu
 {
 //----------------------------------------------------------------------------//
 //------Variables
     
-    private static boolean hrBool = true;
-    private static int hrInput;    
+    private boolean hrBool;
+    private static int hrInput;
+    
+    //CONTRUCTOR
+    public EmployeeMenu(boolean menuBool, boolean hrBool)
+    {
+        super(menuBool);
+        
+        this.hrBool = hrBool;
+    }
 //----------------------------------------------------------------------------//
 //------GET Employee Menu
-    public static void getEmployeeMenu()
+    public void getEmployeeMenu()
     {
 
     //-----WHILE, driving the Employee menu to loop
@@ -100,3 +108,4 @@ public class EmployeeMenu
     
         
 }//------end of Employee Menu
+

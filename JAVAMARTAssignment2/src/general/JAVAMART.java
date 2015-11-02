@@ -1,6 +1,7 @@
 package general;
 import java.util.*;
-import menu.*;
+import menu.MainMenu;
+
 
 
 /** This class will run the JAVAMART application through a menu driven object
@@ -15,28 +16,14 @@ public class JAVAMART
 {
     public static ArrayList<hr.Employee> Employees = new ArrayList(); 
     public static ArrayList<inventory.Product> Products = new ArrayList(); 
-    public static ArrayList<menu.MainMenu> MainMenu = new ArrayList();
+    private static MainMenu menu = new MainMenu(true);
     
     //------main method
     public static void main(String[] args)
     {
-        //add a MAIN MENU OBJECT in the MainMenu ARRAYLIST
-        MainMenu.add(new MainMenu(true));
-        
-        //start the application
-        //startApp();    
-        
+        //GET the main menu form the menu object
+        menu.getMainMenu();
+       
     }//------end of main
 
-    public static void startApp()
-    {
-        int input;
-        
-       
-        
-        //------Create a Main Menu Object
-        //MainMenu menu =  new MainMenu();
-        
-        //MainMenu.getMainMenu(mainBool);
-    }
 }//------end of JAVAMART

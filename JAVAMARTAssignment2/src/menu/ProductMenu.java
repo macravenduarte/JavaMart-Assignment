@@ -9,15 +9,21 @@ import general.*;
  *
  * @author Marco Duarte
  */
-public class ProductMenu 
+public class ProductMenu extends MainMenu
 {
 /**---------------------------------------------------------------------------*/
 //------Variables
-    private static boolean prodBool = true;
-    private static int prodInput;
+    private boolean prodBool;
+    private int prodInput;
+    //CONSTRUCTOR
+    public ProductMenu(boolean menuBool, boolean prodBool)
+    {
+        super(menuBool);
+        this.prodBool = prodBool;
+    }
 /**---------------------------------------------------------------------------*/
 //------GET Products Menu
-    public static void getProductMenu()
+    public void getProductMenu()
     {
         Product myProduct = new Product("T123","Test Product", "Test Category",
                 "Test manufacturer", "Test Description", "Test Part Num",
@@ -63,5 +69,10 @@ public class ProductMenu
         }//-----end of WHILE loop
 /**---------------------------------------------------------------------------*/       
     }//-----end of getProductMenu
+    private void setProductInput(int prodInput)
+    {
+        this.prodInput = prodInput;
+    }
+    
 /**---------------------------------------------------------------------------*/ 
 }//-----end of ProductMenu class
