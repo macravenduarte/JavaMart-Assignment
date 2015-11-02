@@ -122,11 +122,7 @@ public abstract class Employee
     //------age
     public void setAge(int age)
     {
-    //------age check
-        if(age > 65 || age < 16)
-        {
-            this.age = age;
-        }
+        this.age = age; 
     }//------
      
     //------Date of hire

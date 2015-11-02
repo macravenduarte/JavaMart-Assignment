@@ -9,5 +9,5 @@ public abstract class Validation
     public Validation()
     {}
     //Abstract for the menu option selection
-    public abstract int getMenu();
+    //public abstract int getMenu();
 }

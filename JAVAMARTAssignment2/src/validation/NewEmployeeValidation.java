@@ -11,17 +11,19 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
 //----------------------------------------------------------------------------//
 //------Variables
     private Scanner userInput = new Scanner(System.in);
-    private int hrNewInput;
-    private boolean validMenuBool;
+    private int hrEmpType;
+    private boolean validMenuBool, validSelectionBool;
     
     private String firstName, lastName;
+    private int age, year,  month,  day;
+    private double baseSalary;
 //----------------------------------------------------------------------------//
 //------CONTRUCTOR
-    public NewEmployeeValidation(int hrMenuInput, int hrNewInput)
+    public NewEmployeeValidation(int hrMenuInput, int hrEmpType)
     {
         super(hrMenuInput);
         
-        this.hrNewInput = hrNewInput;
+        this.hrEmpType = hrEmpType;
         
     }
 //----------------------------------------------------------------------------//
@@ -37,10 +39,17 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             try
             {
                 newInput = Integer.parseInt(userInput.nextLine());
+                //if the input is a valid menu option
                 if(newInput >= 0 || newInput < 4)
                 {
-                    hrNewInput = newInput;
-                    return hrNewInput;
+                    hrEmpType = newInput;
+                    return hrEmpType;
+                }
+                //invalid, out of range input
+                else
+                {
+                    menu.MenuPrompts.getInvalidMessage();
+                    validMenuBool = true;
                 }
             }
             catch(NumberFormatException numberFormat)
@@ -63,33 +72,113 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
 
         }while(validMenuBool);
         
-        return hrNewInput;
+        return hrEmpType;
     }
     
-    public String getBasicEmployeeInfo()
+    //mak this aa a boolean return 
+    public void getBasicEmployeeInfo(String firstName,String lastName,
+            int age, int year,  int month, int day, double baseSalary)
     {
-        String firstName,lastName;
-        //boolean validSelection;
-        firstName = userInput.nextLine();
         
-        //System.out.println("Is this First Name correct?\n" + firstName + "\n");
-        //System.out.println("Please enter Y or N");
-        if(firstName != "")
+        String newLastName;
+        int newAge, newYear,  newMonth,  newDay;
+        double newBaseSalary;
+        
+        //int newInput;
+        //boolean validSelectionBool;
+    do
+    {
+        getFirstName(validSelectionBool);
+        
+    }while(validSelectionBool);        
+    
+    //validSelectionBool;
+    
+    do
+    {    
+        //prompt for the last name
+        System.out.println("Please enter a new Last Name: ");
+        newLastName = userInput.nextLine();
+
+        System.out.println("Is this Last Name correct?" 
+                + "\n" + newLastName + "\n");
+        System.out.println("Please enter 1 for yes or 0 for no");
+
+        if(newInput == 1)
         {
-            this.firstName = firstName;
+            this.lastName = newLastName;
+            
         }
+        else if(newInput == 0)
+        {
+            validSelectionBool = true;
+        }
+        else
+        {
+            menu.MenuPrompts.getInvalidMessage();
+            validSelectionBool = true;
+        }
+    }while(validSelectionBool); 
+     
+        newAge = userInput.nextInt();
+        System.out.println("Is this the correct Age?" 
+                    + "\n" + newAge + "\n");
+        System.out.println("Please enter 1 for yes or 0 for no");
+        this.age = newAge;
         
-        lastName = userInput.nextLine();
+        //Start date
+        newYear = userInput.nextInt();
+        
+        this.year = newYear;
+        
+        newMonth = userInput.nextInt();
+        this.month = newMonth;
+        
+        newDay = userInput.nextInt();
+        this.day = newDay;
+        
+        //base salary
+        newBaseSalary = userInput.nextInt();
+        this.baseSalary = newBaseSalary;
        
-            this.lastName = lastName;
+    }//end of get basic employee info
+    public boolean getFirstName(boolean validSelectionBool)
+    {
+        String newFirstName;
+        int newInput;
         
-        
-        return firstName + lastName;
-    }
+        do
+        {
+            //prompt for the first name
+            System.out.println("Please enter a new First Name: ");
+            newFirstName = userInput.nextLine();
+            //verify
+            System.out.println("Is this First Name correct?\n" 
+                    +  "\n" + newFirstName + "\n");
+            System.out.println("Please enter 1 for yes or 0 for no");
+            //
+            newInput = Integer.parseInt(userInput.nextLine());
+            if(newInput == 1)
+            {
+                this.firstName = newFirstName;
+            }
+            else if (newInput == 0)
+            {
+                validSelectionBool = true;
+            }
+            else
+            {
+                menu.MenuPrompts.getInvalidMessage();
+                validSelectionBool = true;
+            }
+        }while(validSelectionBool);
+        return false;
+    }//end of get first name
+    
 //----------------------------------------------------------------------------//
 //------SET
-    private void setHrNewInput(int hrNewInput)
+    private void setHrNewInput(int hrEmpType)
     {
-        this.hrNewInput = hrNewInput;
+        this.hrEmpType = hrEmpType;
     }
 }

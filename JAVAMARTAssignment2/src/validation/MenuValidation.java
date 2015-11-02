@@ -34,10 +34,17 @@ public class MenuValidation extends Validation
             {
 
                 newInput = Integer.parseInt(userInput.nextLine());
-                if(newInput >= 0 || newInput < 3)
+                //if the input is valid
+                if(newInput >= 0 && newInput < 3)
                 {
                     menuInput = newInput;
                     return menuInput;
+                }
+                //continue the input loop
+                else
+                {
+                    menu.MenuPrompts.getInvalidMessage();
+                    validInt = true;
                 }
             }
             catch(NumberFormatException numberFormat)

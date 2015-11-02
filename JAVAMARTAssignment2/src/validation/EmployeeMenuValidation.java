@@ -9,8 +9,7 @@ import hr.*;
 public class EmployeeMenuValidation extends Validation
 {
 //----------------------------------------------------------------------------//
-//------Variables
-    
+//------Variables  
     private int hrMenuInput;
     private boolean validMenuBool;
 //----------------------------------------------------------------------------//
@@ -32,7 +31,7 @@ public class EmployeeMenuValidation extends Validation
             try
             {
                 newInput = Integer.parseInt(userInput.nextLine());
-                if(newInput >= 0 || newInput < 3)
+                if(newInput >= 0 && newInput < 3)
                 {
                     hrMenuInput = newInput;
                     return hrMenuInput;
@@ -66,4 +65,7 @@ public class EmployeeMenuValidation extends Validation
     {
         this.hrMenuInput = hrMenuInput;
     }
-}
+    
+//----------------------------------------------------------------------------//
+}//------end of EmployeeMenuValidation sub class
+

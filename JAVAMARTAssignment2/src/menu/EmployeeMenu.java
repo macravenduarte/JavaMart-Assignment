@@ -18,7 +18,7 @@ public class EmployeeMenu extends MainMenu
 //------have a private validation object to validate the user    
     private EmployeeMenuValidation employeeMenuValidation = 
             new EmployeeMenuValidation(hrMenuInput);
-    private NewEmployeeValidation newEmployeeValidation = 
+    private NewEmployeeValidation newEmpValidation = 
             new NewEmployeeValidation(hrMenuInput, hrEmpType);
 //----------------------------------------------------------------------------//
 //------CONTRUCTOR
@@ -58,34 +58,42 @@ public class EmployeeMenu extends MainMenu
                  */ 
 
             }//end of option 1
-        //------enter a new employee
+        //------NEW EMPLOYEE
             else if(hrMenuInput == 2)
             {
                 //validate the hrNewEmpBool to run the sub loop
-                hrNewEmpBool = true;
+                //hrNewEmpBool = true;
                 //display menu prompt
                 menu.MenuPrompts.getNewEmployeeMenu();
                 //WHILE loop employee type selection menu 
-                while(hrNewEmpBool)
+                while(!hrNewEmpBool)
                 {
                 //------validate the selection of the employee type    
-                    hrEmpType = newEmployeeValidation.getNewEmployeeType();
+                    hrEmpType = newEmpValidation.getNewEmployeeType();
                     //Full-time Employee
                     if(hrEmpType == 1)
                     {
+                        
+                        //String firstName, lastName;
+                        //int age, year, month, day;
+                        //double baseSalary;
+                        
                         System.out.println("Full-time Employee");
+                        //newEmpValidation.getBasicEmployeeInfo
+                        //(firstName,lastName,age,year,month,day,baseSalary);
+                        
                         
                     }
                     //Part-time Employee
                     else if(hrEmpType == 2)
                     {
-                        System.out.println("Please enter a choice:");
+                        System.out.println("Part-time Employee");
                     }
                     //Seasonal Employee
                     else if(hrEmpType == 3)
                     {
                         
-                        System.out.println("Part-time Employee");
+                        System.out.println("Seasonal Employee");
                     }
                     //exit new employee menu
                     else if(hrEmpType == 0)
@@ -93,18 +101,16 @@ public class EmployeeMenu extends MainMenu
                         menu.MenuPrompts.getMenuExitMessage();
                         hrNewEmpBool = false;
                     }
-            //------if the input is invalid display the employee selection
-            //------menu options
+                //if the input is invalid display the employee selection
+                //menu options
                     else
                     {
-                        hrNewEmpBool = true;
                         menu.MenuPrompts.getNewEmployeeMenu();
+                        hrNewEmpBool = true;
+                        
                     }
                 }//end of inner while loop (Employee Selection)
-                    
-                //System.out.println("Enter a new employee HERE");
-                
-                
+                                 
                 //employee test data
                 //PartTimeEmployee emp1 = new  PartTimeEmployee
                 //    ("Tony","Persson",50,"Sales Manager",2015,05,20,30000.00);
@@ -113,7 +119,7 @@ public class EmployeeMenu extends MainMenu
                 //JAVAMART.Employees.add(emp1);
                 //addNewEmp();
             
-            }//end of option 2
+            }//end of NEW EMPLOYEE selection
 //----------------------------------------------------------------------------//
         //------return to the main menu
             else if(hrMenuInput == 0)
