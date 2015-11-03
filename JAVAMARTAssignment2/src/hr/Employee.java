@@ -14,7 +14,7 @@ public abstract class Employee
 {
 //------CLASS instance variables
     private String firstName, lastName;
-    private int empId, age;
+    private int empId, age, year, month, day;
     private Date dateOfHire;
     private static int empCounter;
 //----------------------------------------------------------------------------//  
@@ -37,62 +37,79 @@ public abstract class Employee
         this.dateOfHire = cal.getTime();
         //System.out.println(dateOfHire);
         
-        //call the static method of empId to get a new ID
+        //call the static method of empId to get a new ID for each new Employee
         this.empId = ServiceClass.getEmpId();
         //add one to the static employee counter
         updateEmpCounter();
     }
 //----------------------------------------------------------------------------//
-//------GET(ACCESSOR) Methods 
-    //------first name
+//------GET Methods 
+    //FIRST NAME
     public String getFirstName()
     {
         return firstName;
-    }//------
+    }
     
-    //------last name
+    //LAST NAME
     public String getLastName()
     {
         return lastName;
-    }//------
+    }
     
-    //------full name
+    //FULL NAME
     public String getFullName()
     {
         return firstName + " " + lastName;
-    }//------
+    }
     
-    //------age
+    //AGE
     public int getAge()
     {
         return age;
-    }//------
+    }
     
-    //------date of hire
+    //DATE OF HIRE
     public Date getDateOfHire()
     {
         return dateOfHire;
-    }//------
+    } 
+    //YEAR
+    public int getYear()
+    {
+        return year;
+    }
+    //MONTH
+    public int getMonth()
+    {
+        return month;
+    }
+    //DAY
+    public int getDay()
+    {
+        return day;
+    }
     
-    //------employee ID
+    //EMPLOYEE ID
     public int getEmpId()
     {
         return empId;
-    }//------
+    }
     
-    //------employee ID info
+    //EMPLOYEE ID INFO
     public String getEmpInfo()
     {
         return toString();
-    }//------
-    //------total employee count
+    }
+    
+    //TOTAL EMPLOYEE CONNT
     public int getEmpCount()
     {
         return empCounter;
-    }//------
+    }
     
 //----------------------------------------------------------------------------//
-//------OVERRIDE  toString method
+//------OVERRIDE  
+    //toString method
     @Override
     public String toString() 
     {
@@ -107,40 +124,40 @@ public abstract class Employee
     }
 //----------------------------------------------------------------------------//
 //------SET(MUTATOR) methods
-    //------first name
+    //FIRST NAME
     public void setFirstName(String firstName)
     {
         this.firstName = firstName;
-    }//------
+    }
     
-    //------lastName
+    //LAST NAME
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
-    }//------
+    }
     
-    //------age
+    //AGE
     public void setAge(int age)
     {
         this.age = age; 
-    }//------
+    }
      
-    //------Date of hire
+    //DATE OF HIRE
     public void setDateOfHire(int year, int month, int day)
     {
         //create a new calendar object and chain in the method to 
         //get the time in a Date object. 
         this.dateOfHire = new GregorianCalendar(year,month,day).getTime();
-    }//------
+    }
     
-    //------employee Id
+    //EMPLOYEE ID
     public void setEmpId(int empId)
     {
         //although this is ok for now, a check for an existing 
         //emp Id must be conducted here
         //checkEmpId(empId);
         this.empId = empId;
-    }//------
+    }
     
 //----------------------------------------------------------------------------//
 //------OTHER METHODS
@@ -149,11 +166,11 @@ public abstract class Employee
     {
         //update the emp count
         empCounter++;
-    }//------
+    }
     
 //----------------------------------------------------------------------------//
 //------ABSTRACT METHOD
-    //------base salary
+    //SALARY
     public abstract double salary();
     
 }//end of class

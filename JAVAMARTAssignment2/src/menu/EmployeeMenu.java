@@ -1,5 +1,6 @@
 package menu;
 
+import general.JAVAMART;
 import validation.EmployeeMenuValidation;
 import validation.NewEmployeeValidation;
 
@@ -18,6 +19,7 @@ public class EmployeeMenu extends MainMenu
 //------have a private validation object to validate the user    
     private EmployeeMenuValidation employeeMenuValidation = 
             new EmployeeMenuValidation(hrMenuInput);
+    
     private NewEmployeeValidation newEmpValidation = 
             new NewEmployeeValidation(hrMenuInput, hrEmpType);
 //----------------------------------------------------------------------------//
@@ -40,25 +42,21 @@ public class EmployeeMenu extends MainMenu
             hrMenuInput = employeeMenuValidation.getHrMenuInput();
 //----------------------------------------------------------------------------//
     //------selection statements
-        //------display the employee list and details
+        //OPTION 1
+            //SEARCH the employee list and details
             if(hrMenuInput == 1)
             {
                 System.out.println("Run Employee Search HERE");
-
-                //test employee
-                //System.out.println(emp1);
-                //System.out.println("Employee search test");
-                //prompt user for what employee they want to search 
-                
-            //emp testing 
-                //System.out.println(JAVAMART.Employees.toString());
+                //emp testing 
+                System.out.print(JAVAMART.Employees.toString());
                 
                 /** Run for loop to iterate through the employees in the
                  * Employees ArrayList
                  */ 
 
             }//end of option 1
-        //------NEW EMPLOYEE
+        //OPYION 2
+            //NEW EMPLOYEE         
             else if(hrMenuInput == 2)
             {
                 //validate the hrNewEmpBool to run the sub loop
@@ -66,34 +64,28 @@ public class EmployeeMenu extends MainMenu
                 //display menu prompt
                 menu.MenuPrompts.getNewEmployeeMenu();
                 //WHILE loop employee type selection menu 
-                while(!hrNewEmpBool)
+                do
                 {
                 //------validate the selection of the employee type    
                     hrEmpType = newEmpValidation.getNewEmployeeType();
                     //Full-time Employee
                     if(hrEmpType == 1)
                     {
-                        
-                        //String firstName, lastName;
-                        //int age, year, month, day;
-                        //double baseSalary;
-                        
                         System.out.println("Full-time Employee");
-                        //newEmpValidation.getBasicEmployeeInfo
-                        //(firstName,lastName,age,year,month,day,baseSalary);
-                        
-                        
+                        newEmpValidation.getNewFullTime();
+
                     }
                     //Part-time Employee
                     else if(hrEmpType == 2)
                     {
                         System.out.println("Part-time Employee");
+                        //newEmpValidation.getNewPartTime();
                     }
                     //Seasonal Employee
                     else if(hrEmpType == 3)
                     {
-                        
                         System.out.println("Seasonal Employee");
+                        //newEmpValidation.getNewSeasonal();
                     }
                     //exit new employee menu
                     else if(hrEmpType == 0)
@@ -101,24 +93,16 @@ public class EmployeeMenu extends MainMenu
                         menu.MenuPrompts.getMenuExitMessage();
                         hrNewEmpBool = false;
                     }
-                //if the input is invalid display the employee selection
-                //menu options
+                    //if the input is invalid display the employee selection
+                    //menu options
                     else
                     {
                         menu.MenuPrompts.getNewEmployeeMenu();
-                        hrNewEmpBool = true;
-                        
+                        hrNewEmpBool = true; 
                     }
-                }//end of inner while loop (Employee Selection)
-                                 
-                //employee test data
-                //PartTimeEmployee emp1 = new  PartTimeEmployee
-                //    ("Tony","Persson",50,"Sales Manager",2015,05,20,30000.00);
+                }while(hrNewEmpBool);
+                //end of inner while loop (Employee Selection)
 
-                //add test employee
-                //JAVAMART.Employees.add(emp1);
-                //addNewEmp();
-            
             }//end of NEW EMPLOYEE selection
 //----------------------------------------------------------------------------//
         //------return to the main menu
@@ -132,8 +116,7 @@ public class EmployeeMenu extends MainMenu
         return hrBool;
         
     }//------end of GET Employee Menu   
-//----------------------------------------------------------------------------//
-//------GET
+
     
 //----------------------------------------------------------------------------//
 //------SET
@@ -141,28 +124,6 @@ public class EmployeeMenu extends MainMenu
     //------run a for loop to search through the employee ArrayList 
     //by first and last names
     
-    //------run a check for what kind of Employee the user wants to add
-                 
-    //------Add a new employee to the employee list
-    /**public static void addNewEmp()
-    {
-        Scanner userInput = new Scanner(System.in);
-        String firstName, lastName; 
-        int age, year,  month,  day;
-        double baseSalary;
-        
-        firstName = userInput.next();       
-        lastName = userInput.next();
-        age = userInput.nextInt();
-        year = userInput.nextInt();
-        month = userInput.nextInt();
-        day = userInput.nextInt();
-        baseSalary = userInput.nextInt();
-        
-        
-        
-    }
-    */
         
 }//------end of Employee Menu
 

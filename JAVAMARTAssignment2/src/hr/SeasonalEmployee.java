@@ -11,93 +11,73 @@ import java.util.*;
  */
 
 //This seasonal employee class extends the employee abstract
-public class SeasonalEmployee extends FullTimeEmployee
+public class SeasonalEmployee extends PartTimeEmployee
 {
-/**---------------------------------------------------------------------------*/
+//-----------------------------------------------------------------------------/
 //------Variables
     //------end of season date for termination    
     private Date seasonTermination;
+    private int termYear,termMonth, termDay;
     
-/**---------------------------------------------------------------------------*/    
+//-----------------------------------------------------------------------------/
 //------SeasonalEmployee constructor
     public SeasonalEmployee(String firstName, String lastName, int age, 
-            int year, int month, int day,
-            int termYear, int termMonth, int termDay, double baseSalary)
+            int year, int month, int day, int termYear, int termMonth, 
+            int termDay, double hourlyRateSalary)
     {
-        super(firstName, lastName, age, year, month, day, baseSalary);
+        super(firstName, lastName, age, year, month, day, hourlyRateSalary);
         
-        //generate a gregorian calender object for the end of season termination date
-        GregorianCalendar cal = new GregorianCalendar(termYear, termMonth-1, termDay);
+        this.termYear = termYear;
+        this.termMonth = termMonth;
+        this.termDay = termDay;
+        
+    //generate a gregorian calender object for the end of season termination date
+        GregorianCalendar cal = 
+                new GregorianCalendar(termYear, termMonth-1, termDay);
         
         this.seasonTermination = cal.getTime();
     }//------end of Seasonal Employee constructor
     
-/**---------------------------------------------------------------------------*/
+//-----------------------------------------------------------------------------/
 //------methods
-    //------termination date for the seasonal employee
-    public void setEndOfSeasonTermination
-        (int year, int month, int day, int termYear, int termMonth, int termDay)
-    {
-        Scanner input = new Scanner(System.in);
-        int tYear, tMonth, tDay;
-        
-        
-        System.out.println("Please enter the year.");
-        tYear = input.nextInt();
-        //place a validation for the year
-        if(tYear < year)
-        {
-            menu.MenuPrompts.getInvalidMessage();
-        }
-        else
-        {
-            termYear = tYear;
-        }
-        System.out.println("Please enter the month.");
-        tMonth = input.nextInt();
-        //place a validation for the month
-        if(tMonth < month)
-        {
-            menu.MenuPrompts.getInvalidMessage();
-        }
-        else
-        {
-             termMonth = tMonth;
-        }
-        System.out.println("Please enter the day.");
-        tDay = input.nextInt();
-        //place a validation for the day
-        if(tDay < day)
-        {
-            menu.MenuPrompts.getInvalidMessage();
-        }
-        else
-        {
-            termDay = tDay;
-        } 
-        //test print
-        System.out.println(termYear + " " + termMonth +  " " + termDay);
-        this.seasonTermination = new Date(termYear, termMonth, termDay);
-    }//------
-    
+    //GET
+    //SEASON TERMINATION DATE
     public Date getSeasonTermination()
     {
         return seasonTermination;
     }
-    //------over ride base salary
-    @Override
-    public double salary()
+    //TERMINATION YEAR
+    public int getTermYear()
     {
-        return getBaseSalary();
-    }//------
-    
-    //------over ride toString to include base earnings and 
+        return termYear;
+    }
+    //TERMINATION MONTH
+    public int getTermMonth()
+    {
+        return termMonth;
+    }
+    //TERMINATION DAY
+    public int getTermDay()
+    {
+        return termDay;
+    }
+//-----------------------------------------------------------------------------/
+    //SET
+    //termination date for the seasonal employee
+    public void setEndOfSeasonTermination
+        (int termYear, int termMonth, int termDay)
+    {
+        this.termYear = termYear;
+        this.termMonth = termMonth;
+        this.termDay = termDay;
+    }
+
+    //over ride toString to include Termination Date
     @Override
     public String toString() 
     {
-        return super.toString() + "\nTotal Base Salary:\t" + getBaseSalary()
-                + super.toString() + "\nSeason Termination Date: \t\t" 
+        return super.toString() + "\nSeason Termination Date: \t\t" 
                     + getSeasonTermination();  
-    }//------
-/**---------------------------------------------------------------------------*/
+    }
+//-----------------------------------------------------------------------------/
 }//end of Seasonal Employee class
