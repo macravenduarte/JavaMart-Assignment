@@ -17,7 +17,7 @@ public class MenuPrompts
         System.out.println("1: Products");
         System.out.println("2: HR");
         System.out.println("0: Exit");
-        System.out.println("---------------------------------------------");
+        System.out.println("---------------------------------------------\n");
     }
     //static PRODUCT MENU message 
     public static void getProductMessage()
@@ -28,7 +28,7 @@ public class MenuPrompts
         System.out.println("1: Search products");
         System.out.println("2: Enter new product");
         System.out.println("0: Exit");
-        System.out.println("---------------------------------------------");
+        System.out.println("---------------------------------------------\n");
     }
     //static HR MENU message 
     public static void getHRMessage()
@@ -39,7 +39,7 @@ public class MenuPrompts
         System.out.println("1: Search employees");
         System.out.println("2: Enter new employee");
         System.out.println("0: Exit");
-        System.out.println("---------------------------------------------");
+        System.out.println("---------------------------------------------\n");
     }
 
     //static NEW EMPLOYEE MENU message
@@ -51,7 +51,7 @@ public class MenuPrompts
         System.out.println("2: Part-time Employee");
         System.out.println("3: Seasonal Employee");
         System.out.println("0: Exit");
-        System.out.println("---------------------------------------------");
+        System.out.println("---------------------------------------------\n");
     }
     
     //static INVALID INPUT
@@ -59,7 +59,7 @@ public class MenuPrompts
     {
         System.out.println("---------------------------------------------");
         System.out.println("Invalid input! Please try again");
-        System.out.println("---------------------------------------------");
+        System.out.println("---------------------------------------------\n");
     }
     
     //static EXITING a MENU selection
@@ -67,7 +67,7 @@ public class MenuPrompts
     {
         System.out.println("---------------------------------------------");
         System.out.println("Exiting back to previous menu options.");
-        System.out.println("---------------------------------------------");
+        System.out.println("---------------------------------------------\n");
     }
     
     //static EXITING the program
@@ -75,6 +75,6 @@ public class MenuPrompts
     {
         System.out.println("---------------------------------------------");
         System.out.println("Thank you for using JAVAMART!\n GoodBye!");
-        System.out.println("---------------------------------------------");
+        System.out.println("---------------------------------------------\n");
     }
 }//end of menu prompts class

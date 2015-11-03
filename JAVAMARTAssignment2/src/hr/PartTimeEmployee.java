@@ -24,8 +24,7 @@ public class PartTimeEmployee extends Employee
 //------METHODS
     public double getHourlyRateSalary()
     {
-        this.hourlyRateSalary = this.salary();
-        return hourlyRateSalary;
+        return this.hourlyRateSalary;
     }
 //------OVERRIDE    
     //------salary
@@ -33,13 +32,13 @@ public class PartTimeEmployee extends Employee
     public double salary()
     {
         return getHourlyRateSalary();
-    }//------
+    }
     
     //------toString method  
     @Override
     public String toString() 
     {
         return super.toString() + "\nTotal Hour Rate Salary: \t\t" + getHourlyRateSalary();  
-    }//------
+    }
     
 }//end of part time employee class

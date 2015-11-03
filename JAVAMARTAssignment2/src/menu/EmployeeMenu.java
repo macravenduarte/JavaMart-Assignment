@@ -34,11 +34,12 @@ public class EmployeeMenu extends MainMenu
 //------GET Employee Menu
     public boolean getEmployeeMenu()
     {
-        menu.MenuPrompts.getHRMessage();
+        
     //-----WHILE, driving the Employee menu to loop
         while(hrBool)
-        {            
-        //------run the input validation for the employee menu selection
+        {      
+            menu.MenuPrompts.getHRMessage();
+            //run the input validation for the employee menu selection
             hrMenuInput = employeeMenuValidation.getHrMenuInput();
 //----------------------------------------------------------------------------//
     //------selection statements
@@ -46,10 +47,11 @@ public class EmployeeMenu extends MainMenu
             //SEARCH the employee list and details
             if(hrMenuInput == 1)
             {
-                System.out.println("Run Employee Search HERE");
+                System.out.println("Employee Search");
                 //emp testing 
                 System.out.print(JAVAMART.Employees.toString());
                 
+                JAVAMART.Employees.iterator();
                 /** Run for loop to iterate through the employees in the
                  * Employees ArrayList
                  */ 
@@ -59,14 +61,13 @@ public class EmployeeMenu extends MainMenu
             //NEW EMPLOYEE         
             else if(hrMenuInput == 2)
             {
-                //validate the hrNewEmpBool to run the sub loop
-                //hrNewEmpBool = true;
-                //display menu prompt
-                menu.MenuPrompts.getNewEmployeeMenu();
+
                 //WHILE loop employee type selection menu 
                 do
                 {
-                //------validate the selection of the employee type    
+                    //display menu prompt
+                    menu.MenuPrompts.getNewEmployeeMenu();
+                    //validate the selection of the employee type    
                     hrEmpType = newEmpValidation.getNewEmployeeType();
                     //Full-time Employee
                     if(hrEmpType == 1)
@@ -79,13 +80,13 @@ public class EmployeeMenu extends MainMenu
                     else if(hrEmpType == 2)
                     {
                         System.out.println("Part-time Employee");
-                        //newEmpValidation.getNewPartTime();
+                        newEmpValidation.getNewPartTime();
                     }
                     //Seasonal Employee
                     else if(hrEmpType == 3)
                     {
                         System.out.println("Seasonal Employee");
-                        //newEmpValidation.getNewSeasonal();
+                        newEmpValidation.getNewSeasonal();
                     }
                     //exit new employee menu
                     else if(hrEmpType == 0)
@@ -103,7 +104,7 @@ public class EmployeeMenu extends MainMenu
                 }while(hrNewEmpBool);
                 //end of inner while loop (Employee Selection)
 
-            }//end of NEW EMPLOYEE selection
+            }//end of NEW EMPLOYEE selection, option 2
 //----------------------------------------------------------------------------//
         //------return to the main menu
             else if(hrMenuInput == 0)

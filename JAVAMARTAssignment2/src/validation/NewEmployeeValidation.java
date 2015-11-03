@@ -3,7 +3,15 @@ package validation;
 import general.JAVAMART;
 import java.util.*;
 import hr.*;
-/**
+
+/** This Class is an extension of the EmployeeMenuValidation class. Its purpose
+ * is to validate all content that creates any employee type. Before injecting
+ * the values in the user must enter in correct information for the values to 
+ * pass through. There are sections that deal with the basic employee 
+ * information and separate methods that deal with the unique differences between
+ * each type of employee. Base salary, hourly rate and termination date
+ * are all validated on their own.
+ * 
  *
  * @author Marco Duarte
  */
@@ -30,7 +38,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
     }
 //----------------------------------------------------------------------------//
 //------GET
-    //EMPLOYEE TYPE
+    //EMPLOYEE TYPE sub menu selection
     public int getNewEmployeeType()
     {
         
@@ -77,6 +85,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
         
         return hrEmpType;
     }//end of get EMPLOYEE TYPE
+//----------------------------------------------------------------------------//   
 //----------------------------------------------------------------------------//
     //NEW FULL TIME EMPLOYEE
     public void getNewFullTime()
@@ -140,17 +149,18 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
         
         do
         {
-            //verify
+            
             try
             {
-                //prompt for the first name
+                //prompt
                 System.out.println("Please enter a new First Name: ");
                 newFirstName = userInput.nextLine();
                 
+                //verify
                 System.out.println("Is this First Name correct?\n" 
                         +  "\n" + newFirstName + "\n");
                 System.out.println("Please enter 1 for yes or 0 for no");
-                //
+                
                 newInput = Integer.parseInt(userInput.nextLine());
                 if(newInput == 1)
                 {
@@ -181,9 +191,9 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             }
             
         }while(validSelectionBool);
-        //return validSelectionBool;
+
     }//end of SET FIRST NAME
-    
+//----------------------------------------------------------------------------//   
     //LAST NAME validation
     private void setLastName(String lastName)
     {
@@ -194,10 +204,10 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
         {
             try
             {
-                //prompt for the last name
+                //prompt 
                 System.out.println("Please enter a new Last Name: ");
                 newLastName = userInput.nextLine();
-
+                //verify
                 System.out.println("Is this Last Name correct?" 
                         + "\n" + newLastName + "\n");
                 System.out.println("Please enter 1 for yes or 0 for no.");
@@ -233,10 +243,9 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             }
             
         }while(validSelectionBool);
-        
-        //return validSelectionBool; 
+
     }//end of SET LAST NAME
-    
+//----------------------------------------------------------------------------//    
     //AGE validation
     private void setAge(int age)
     {
@@ -299,7 +308,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
 
         }while(validSelectionBool);
     }//end of SET AGE
-    
+//----------------------------------------------------------------------------//
     //YEAR validation
     private void setYear(int year)
     {
@@ -362,8 +371,8 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             
         }while(validSelectionBool);
   
-    }
-    
+    }//end of SET YEAR
+//----------------------------------------------------------------------------//
     //MONTH validation
     private void setMonth(int month)
     {
@@ -426,7 +435,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             
         }while(validSelectionBool);
     }//end of SET MONTH
-    
+//----------------------------------------------------------------------------//
     //DAY validation
     private void setDay(int day)
     {
@@ -488,7 +497,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             
         }while(validSelectionBool);
     }//end of SET DAY
-    
+//----------------------------------------------------------------------------//
 //----------------------------------------------------------------------------// 
     //BASE SALARY validation for FULL TIME EMPLOYEES
     private void setBaseSalary(double baseSalary)
@@ -503,7 +512,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
                 System.out.println("Please enter the employee's Base Salary:");
                 System.out.println("Reminder: Base Salary starts at $15,000 per year");
                 newBaseSalary = userInput.nextDouble();
-
+            
                 System.out.println("Is this the correct Base Salary?" 
                             + "\n" + newBaseSalary + "\n");
                 System.out.println("Please enter 1 for yes or 0 for no.");
@@ -541,7 +550,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
-                System.err.println("Error: You entered a letter. \n"
+                System.err.println("Error: You entered a letter.\n"
                         + "You must enter a valid double.\n");
                 validSelectionBool = true;
             }
@@ -619,7 +628,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             }
             
         }while(validSelectionBool);
-    }
+    }//end of SET HOURLY RATE
 //----------------------------------------------------------------------------//    
     //TERMINATION DATE for SEASONAL EMPLOYEES   
     private void setTermDate(int termYear,int termMonth,int termDay)
@@ -628,7 +637,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
         setTermMonth(termMonth);
         setTermDay(termDay);
     }
-    //YEAR validation
+    //TERMINATION YEAR validation
     private void setTermYear(int termYear)
     {
         int newTermYear, newInput;
@@ -690,9 +699,9 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             
         }while(validSelectionBool);
   
-    }
+    }//end of SET TERMINATION YEAR
     
-    //MONTH validation
+    //TERMINATION MONTH validation
     private void setTermMonth(int termMonth)
     {
         int newTermMonth, newInput;
@@ -754,9 +763,9 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             }
             
         }while(validSelectionBool);
-    }//end of SET MONTH
+    }//end of SET TERMINATION MONTH
     
-    //DAY validation
+    //TERMINATION DAY validation
     private void setTermDay(int termDay)
     {
         int newTermDay, newInput;
@@ -818,7 +827,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             }
             
         }while(validSelectionBool);
-    }//end of SET DAY
+    }//end of SET TERMINATION DAY
 //----------------------------------------------------------------------------//
     //employee type menu selection
     private void setEmpType(int hrEmpType)

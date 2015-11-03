@@ -40,7 +40,7 @@ public class FullTimeEmployee extends Employee
     @Override
     public String toString() 
     {
-        return super.toString() + "\nTotal Base Salary:\t" + getBaseSalary();  
+        return super.toString() + "\nTotal Base Salary:\t\t" + getBaseSalary();  
     }
     
 }//------end of fulltime employee cladd
