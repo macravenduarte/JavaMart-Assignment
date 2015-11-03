@@ -2,11 +2,12 @@ package validation;
 
 import java.util.*;
 
-/**
+/** This class extends the abstract validation class. Its purpose is to validate
+ * the product menu input from the user.
  *
  * @author Marco Duarte
  */
-public class ProductValidation extends Validation
+public class ProductMenuValidation extends Validation
 {
 //----------------------------------------------------------------------------//
 //------Variables  
@@ -14,7 +15,7 @@ public class ProductValidation extends Validation
     private boolean validMenuBool;
 //----------------------------------------------------------------------------//
 //------CONTRUCTOR     
-    public ProductValidation(int prodMenuInput)
+    public ProductMenuValidation(int prodMenuInput)
     {
         this.prodMenuInput = prodMenuInput;       
     }

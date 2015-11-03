@@ -2,7 +2,8 @@ package validation;
 
 import java.util.Scanner;
 import hr.*;
-/**
+/** This class is an extension of the super Validation class. Its purpose is to
+ * validate the first HR menu selection from the user.
  *
  * @author Marco Duarte
  */

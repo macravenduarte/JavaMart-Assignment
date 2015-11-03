@@ -1,8 +1,7 @@
 package menu;
 
-import java.util.*;
 import inventory.*;
-import validation.ProductValidation;
+import validation.ProductMenuValidation;
 
 /** This class will run through the "PRODUCTS" section of the menu
  *
@@ -15,8 +14,8 @@ public class ProductMenu extends MainMenu
     private boolean prodMenuBool;
     private int prodMenuInput;
     
-    private ProductValidation productValidation =
-            new ProductValidation(prodMenuInput);
+    private ProductMenuValidation productValidation =
+            new ProductMenuValidation(prodMenuInput);
 //----------------------------------------------------------------------------//  
 //------CONSTRUCTOR 
     public ProductMenu(boolean menuBool, boolean prodMenuBool)

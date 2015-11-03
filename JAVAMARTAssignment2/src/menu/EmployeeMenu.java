@@ -49,7 +49,7 @@ public class EmployeeMenu extends MainMenu
             {
                 System.out.println("Employee Search");
                 //emp testing 
-                System.out.print(JAVAMART.Employees.toString());
+                //System.out.print(JAVAMART.Employees.toString());
                 
                 JAVAMART.Employees.iterator();
                 /** Run for loop to iterate through the employees in the
@@ -117,14 +117,16 @@ public class EmployeeMenu extends MainMenu
         return hrBool;
         
     }//------end of GET Employee Menu   
-
-    
 //----------------------------------------------------------------------------//
-//------SET
+//------SET employee menu input
+    private void setHrMenuInput(int hrMenuInput)
+    {
+        this.hrMenuInput = hrMenuInput;
+    }
     
-    //------run a for loop to search through the employee ArrayList 
-    //by first and last names
-    
-        
+    private void setNewEmpMenuInput(int hrEmpType)
+    {
+        this.hrEmpType = hrEmpType;
+    }
 }//------end of Employee Menu
 
