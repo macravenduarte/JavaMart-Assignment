@@ -33,7 +33,7 @@ public class MenuPrompts
     //static HR MENU message 
     public static void getHRMessage()
     {
-        System.out.println("---------------------------------------------");
+        System.out.println("\n---------------------------------------------");
         System.out.println("What would you like to do?:");
         System.out.println("Please enter a choice:");
         System.out.println("1: Search employees");

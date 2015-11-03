@@ -18,7 +18,7 @@ public class FullTimeEmployee extends Employee
     {
         super(firstName, lastName, age, year, month, day);
         
-        this.baseSalary = getBaseSalary();
+        this.baseSalary = baseSalary;
     }//------end of full time employee constructor
     
 //----------------------------------------------------------------------------//
@@ -28,6 +28,11 @@ public class FullTimeEmployee extends Employee
         return this.baseSalary;
     }
     
+    public void setBaseSalary(double baseSalary)
+    {
+        this.baseSalary = baseSalary;
+    }
+        
 //------OVERRIDE   
     //over ride the salary to get the base salary
     @Override

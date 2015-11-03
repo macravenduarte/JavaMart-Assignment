@@ -108,7 +108,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
         setBasicEmployeeInfo(firstName, lastName, age, year, month, day);
         setHourlyRateSalary(hourlyRateSalary);
         
-        //add the new Fulltime employee to the EMPLOYEE Array List
+        //add the new Part time employee to the EMPLOYEE Array List
         JAVAMART.Employees.add
             (new PartTimeEmployee
                 (firstName, lastName, age, year, month, day, hourlyRateSalary));
@@ -122,8 +122,11 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
         setHourlyRateSalary(hourlyRateSalary);
         setTermDate(termYear, termMonth, termDay);
         
-        //add the new Fulltime employee to the EMPLOYEE Array List
-        //JAVAMART.Employees.add
+        //add the new Seasonal employee to the EMPLOYEE Array List
+        JAVAMART.Employees.add
+                (new SeasonalEmployee
+                    (firstName, lastName, age, year, month, day, 
+                            termYear, termMonth, termDay, hourlyRateSalary));
     }//end of NEW SEASONAL EMPLOYEE
 //----------------------------------------------------------------------------//
 //------SET

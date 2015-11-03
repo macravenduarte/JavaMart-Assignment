@@ -49,9 +49,9 @@ public class EmployeeMenu extends MainMenu
             {
                 System.out.println("Employee Search");
                 //emp testing 
-                //System.out.print(JAVAMART.Employees.toString());
+                System.out.print(JAVAMART.Employees.toString());
                 
-                JAVAMART.Employees.iterator();
+                
                 /** Run for loop to iterate through the employees in the
                  * Employees ArrayList
                  */ 
