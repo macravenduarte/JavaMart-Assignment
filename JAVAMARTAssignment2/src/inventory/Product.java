@@ -5,176 +5,126 @@ package inventory;
  * 
  */
 
-/**
+/** This Product class extends the Manufacturer class. Every Product object 
+ * is only valid with a valid Manufacturer. This class will return a product Id,
+ * product name, description, part number, product cost, product price.
  *
- * @author Tony Persson
+ * @author Marco Duarte
  */
-public class Product 
+public class Product extends Manufacturer
 {
-    
-    private String productId, productName, category, manufacturer,
-            description, partNum;
-    private double productCost, productPrice, productMarkup = 1.22;
-    private int minimumInventory;
-    //set the availability to false to start.
-    private boolean productAvailable = false;
-    
-    //default constructor
-    public Product()
-    {}
-    //full constructor - manufacturer should be it's own class
-    public Product(String productId,String productName,String category, 
-            String manufacturer,String description, String partNum, 
-            double productCost,double productPrice, double productMarkup,
-            int minimumInventory)
+//----------------------------------------------------------------------------//  
+    //VARIABLES
+    private String productId, productName, category,description, partNum;
+    private double productCost, productPrice;
+//----------------------------------------------------------------------------//  
+    //CONSTRUCTOR
+    public Product
+        (String productId,String productName,String category, 
+            String manufacturer,String description, String partNum)
     {
+        super(manufacturer);
+        
         this.productId = productId;
         this.productName = productName;
         this.category = category;
-        this.manufacturer = manufacturer;
         this.description = description;
         this.partNum = partNum;
-        this.productCost = productCost;
-        this.productPrice = productPrice;
-        this.productMarkup = productMarkup;
-        this.minimumInventory = minimumInventory;
+
     }
-    
-    //overloaded constructor taking less values
-    public Product(String productId, String productName, String category,
-            String manufacturer,String description, String partNum)
-    {
-            this(productId,productName,category,manufacturer,description, 
-                    partNum,0.01,0.01,0.22,10);
-    }
-    
-    //GET methods
+//----------------------------------------------------------------------------//  
+    //GET
+    //PRODUCT ID
     public String getProductId()
     {
         return this.productId;
     }
+    //PRODUCT NAME
     public String getProductName()
     {
         return this.productName;
     }
+    //CATEGORY
     public String getCategory()
     {
         return this.category;
     }
-    public String getManufacturer()
-    {
-        return this.manufacturer;
-    }
+    //DESRCRIPTION
     public String getDescription()
     {
         return this.description;
     }
+    //PART NUMBER
     public String getPartNum()
     {
         return this.partNum;
     }
+    //PRODUCT COST
     public double getProductCost()
     {
         return this.productCost;
     }
+    //PRODUCT PRICE
     public double getProductPrice()
     {
         return this.productPrice;
     }
-    public double getProductMarkup()
-    {
-        return this.productMarkup;
-    }
-    public int getMinimumInventory()
-    {
-        return this.minimumInventory;
-    }
-    
-    @Override
-    public String toString() 
-    {
-        String productInfo = "";
-
-        productInfo += "\nName:\t\t" + getProductName();
-        productInfo += "\nId:\t\t" + getProductId();
-        productInfo += "\nPart Num:\t" + getPartNum();
-        productInfo += "\nCategory:\t" + getCategory();
-        productInfo += "\nManufacturer:\t" + getManufacturer();
-        productInfo += "\nDescription:\t" + getDescription();
-        productInfo += "\nCost:\t\t$" + getProductCost();
-        productInfo += "\nPrice:\t\t$" + getProductPrice();
- 
-        return productInfo;
-    }
-    
-    //SET methods
+//----------------------------------------------------------------------------//  
+    //SET
+    //PRODUCT ID
     public void getProductId(String productId)
     {
          this.productId = productId;
     }
+    //PRODUCT NAME
     public void getProductName(String productName)
     {
         this.productName = productName;
     }
+    //CATEGORY
     public void category(String category)
     {
          this.category = category;
     }
-    public void manufaturer(String manufacturer)
-    {
-        this.manufacturer = manufacturer;
-    }
+    //DESRCRIPTION
     public void getDescription(String description)
     {
         this.description = description;
     }
+    //PART NUMBER
     public void getPartNum(String partNum)
     {
         this.partNum = partNum;
     }
+    //PRODUCT COST
     public void getProductCost(double productCost)
     {
         //add validation here before setting the value
         this.productCost = productCost;
         //run activation check 
     }
+    //PRODUCT PRICE
     public void getProductPrice(double productPrice)
     {
         //add validation here before setting the value
         this.productPrice = productPrice;
         //run changeActivationState if needed
     }
-    public void getProductMarkup(double productMarkup)
+
+    //OVER RIDE toString()
+    @Override
+    public String toString() 
     {
-        //add validation here before setting the value
-        this.productMarkup = productMarkup;
-        //run changeActivationState if needed
+
+        return super.toString() 
+                + "\nId:\t\t" + getProductId()
+                + "\nName:\t\t" + getProductName()
+                + "\nPart Num:\t\t" + getPartNum()
+                + "\nCategory:\t\t" + getCategory()
+                + "\nDescription:\t\t" + getDescription()
+                + "\nCost:\t\t$" + getProductCost()
+                + "\nPrice:\t\t$" + getProductPrice();
+                
     }
-    public void getMinimumInventory(int minimumInventory)
-    {
-        this.minimumInventory = minimumInventory;
-        //run changeActivationState if needed
-    }
-    
-    /*product activation method. All products are unavailable until
-      validated. The product is forced to be activated through several tests
-      to ensure that the product is ready for sale.  
-    */
-    public boolean changeActivationState(int productId)
-    {
-        //validate productId before procceding
-        //if(validateProd) 
-                   
-        //if statement to validate cost, price and markup. 
-        if(this.productCost > 0.0 && this.productPrice > 0.0 && 
-                ((this.productPrice/this.productCost)-1)>=0.22)
-        {
-            return this.productAvailable = true;
-        }
-        else
-        {
-            return this.productAvailable = false;
-        }
-    }
-    
-}
+
+}//end of MANUFACTURER

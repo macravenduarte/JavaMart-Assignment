@@ -9,21 +9,23 @@ import java.util.*;
  * employees in an Array List
  * @author Marco Duarte
  */
-//----------------------------------------------------------------------------//
+
 public abstract class Employee 
 {
-//------CLASS instance variables
+//----------------------------------------------------------------------------//  
+//VARIABLES
     private String firstName, lastName;
     private int empId, age, year, month, day;
     private Date dateOfHire;
     private static int empCounter;
 //----------------------------------------------------------------------------//  
 //------CONSTRUCTORS
-//------explicit default constructor
+    
+    //DEFAULT
     public Employee()
     {}
     
-//------constructor with first name, last name, age, position, 
+//------OVERLOADED with first name, last name, age, position, 
     //------and date (YYYY-MM-DD) of when 'Employee' was hired
     public Employee(String firstName, String lastName, int age, 
             int year, int month, int day)
@@ -108,22 +110,7 @@ public abstract class Employee
     }
     
 //----------------------------------------------------------------------------//
-//------OVERRIDE  
-    //toString method
-    @Override
-    public String toString() 
-    {
-        String employeeInfo = "";
-
-        employeeInfo += "\nName:\t\t" + getFullName();
-        employeeInfo += "\nId:\t\t" + getEmpId();
-        employeeInfo += "\nAge:\t\t" + getAge();
-        employeeInfo += "\nHire-Date:\t\t" + getDateOfHire();
-    
-        return employeeInfo;
-    }
-//----------------------------------------------------------------------------//
-//------SET(MUTATOR) methods
+//------SET
     //FIRST NAME
     public void setFirstName(String firstName)
     {
@@ -172,5 +159,21 @@ public abstract class Employee
 //------ABSTRACT METHOD
     //SALARY
     public abstract double salary();
+    
+//----------------------------------------------------------------------------//
+//------OVERRIDE  
+    //toString method
+    @Override
+    public String toString() 
+    {
+        String employeeInfo = "";
+
+        employeeInfo += "\nName:\t\t" + getFullName();
+        employeeInfo += "\nId:\t\t" + getEmpId();
+        employeeInfo += "\nAge:\t\t" + getAge();
+        employeeInfo += "\nHire-Date:\t\t" + getDateOfHire();
+    
+        return employeeInfo;
+    }
     
 }//end of class

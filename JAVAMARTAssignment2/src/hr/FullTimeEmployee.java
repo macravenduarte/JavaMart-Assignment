@@ -22,7 +22,8 @@ public class FullTimeEmployee extends Employee
     }//------end of full time employee constructor
     
 //----------------------------------------------------------------------------//
-//------METHODS 
+//------GET 
+    //BASE SLARY
     public double getBaseSalary()
     {
         return this.baseSalary;
@@ -45,7 +46,8 @@ public class FullTimeEmployee extends Employee
     @Override
     public String toString() 
     {
-        return super.toString() + "\nTotal Base Salary:\t\t" + getBaseSalary();  
+        return super.toString() 
+                + "\nTotal Base Salary:\t\t" + getBaseSalary();  
     }
     
 }//------end of fulltime employee cladd

@@ -30,6 +30,19 @@ public class MenuPrompts
         System.out.println("0: Exit");
         System.out.println("---------------------------------------------\n");
     }
+    //static MANUFACTURER NAMES MENU message
+    public static void getManuNameMenu()
+    {
+        System.out.println("---------------------------------------------");
+        System.out.println("Manufacturer Selection");
+        System.out.println("Please enter a choice:");
+        System.out.println("1: New Manufacturer");
+        System.out.println("2: Staples");
+        System.out.println("3: Zep");
+        System.out.println("0: Exit");
+        System.out.println("---------------------------------------------\n");
+    }
+            
     //static HR MENU message 
     public static void getHRMessage()
     {

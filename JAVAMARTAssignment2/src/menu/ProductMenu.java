@@ -50,6 +50,7 @@ public class ProductMenu extends MainMenu
             else if(prodMenuInput == 2)
             {
                 System.out.println("Enter a new product here");
+                //
             //Product myProduct = new Product("T123","Test Product", "Test Category",
                    // "Test manufacturer", "Test Description", "Test Part Num",
                    // 10.00, 20.00, 0.22,50);
