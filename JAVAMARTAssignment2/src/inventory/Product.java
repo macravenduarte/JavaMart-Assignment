@@ -1,9 +1,6 @@
 package inventory;
 
-/*
- * Product class
- * 
- */
+import general.ServiceClass;
 
 /** This Product class extends the Manufacturer class. Every Product object 
  * is only valid with a valid Manufacturer. This class will return a product Id,
@@ -11,111 +8,125 @@ package inventory;
  *
  * @author Marco Duarte
  */
+
 public class Product extends Manufacturer
 {
 //----------------------------------------------------------------------------//  
     //VARIABLES
-    private String productId, productName, category,description, partNum;
+    private int productId;
+    private String productName, category,description, partNum;
     private double productCost, productPrice;
+    
+    private static int productCounter;
 //----------------------------------------------------------------------------//  
     //CONSTRUCTOR
     public Product
-        (String productId,String productName,String category, 
-            String manufacturer,String description, String partNum)
+        (String productName,String category, String manufacturer,
+                String description, String partNum)
     {
         super(manufacturer);
         
-        this.productId = productId;
+        this.productId = ServiceClass.getProdId();
         this.productName = productName;
         this.category = category;
         this.description = description;
         this.partNum = partNum;
 
+        updateProdCounter();
     }
 //----------------------------------------------------------------------------//  
     //GET
     //PRODUCT ID
-    public String getProductId()
+    public int getProductId()
     {
-        return this.productId;
+        return productId;
     }
     //PRODUCT NAME
     public String getProductName()
     {
-        return this.productName;
+        return productName;
     }
     //CATEGORY
     public String getCategory()
     {
-        return this.category;
+        return category;
     }
     //DESRCRIPTION
     public String getDescription()
     {
-        return this.description;
+        return description;
     }
     //PART NUMBER
     public String getPartNum()
     {
-        return this.partNum;
+        return partNum;
     }
     //PRODUCT COST
     public double getProductCost()
     {
-        return this.productCost;
+        return productCost;
     }
     //PRODUCT PRICE
     public double getProductPrice()
     {
-        return this.productPrice;
+        return productPrice;
+    }
+    //PRODUCT COUNTER
+    public int getProductCounter()
+    {
+        return productCounter;
     }
 //----------------------------------------------------------------------------//  
     //SET
     //PRODUCT ID
-    public void getProductId(String productId)
+    public void setProductId(int productId)
     {
          this.productId = productId;
     }
     //PRODUCT NAME
-    public void getProductName(String productName)
+    public void setProductName(String productName)
     {
         this.productName = productName;
     }
     //CATEGORY
-    public void category(String category)
+    public void setcategory(String category)
     {
          this.category = category;
     }
     //DESRCRIPTION
-    public void getDescription(String description)
+    public void setDescription(String description)
     {
         this.description = description;
     }
     //PART NUMBER
-    public void getPartNum(String partNum)
+    public void setPartNum(String partNum)
     {
         this.partNum = partNum;
     }
     //PRODUCT COST
-    public void getProductCost(double productCost)
+    public void setProductCost(double productCost)
     {
-        //add validation here before setting the value
         this.productCost = productCost;
-        //run activation check 
     }
     //PRODUCT PRICE
-    public void getProductPrice(double productPrice)
+    public void setProductPrice(double productPrice)
     {
-        //add validation here before setting the value
         this.productPrice = productPrice;
-        //run changeActivationState if needed
     }
-
+//----------------------------------------------------------------------------//
+//------STATIC
+    private void updateProdCounter()
+    {
+        //update the product number counter
+        productCounter++;
+    }
+//----------------------------------------------------------------------------//
     //OVER RIDE toString()
     @Override
     public String toString() 
     {
 
+        //concate all the product info to the MANUFACTURER super class
         return super.toString() 
                 + "\nId:\t\t" + getProductId()
                 + "\nName:\t\t" + getProductName()
@@ -127,4 +138,4 @@ public class Product extends Manufacturer
                 
     }
 
-}//end of MANUFACTURER
+}//end of PRODUCTS

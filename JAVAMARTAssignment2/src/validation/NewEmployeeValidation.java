@@ -1,91 +1,37 @@
 package validation;
 
 import general.JAVAMART;
-import java.util.*;
 import hr.*;
+import java.util.*;
 
-/** This Class is an extension of the EmployeeMenuValidation class. Its purpose
- * is to validate all content that creates any employee type. Before injecting
- * the values in the user must enter in correct information for the values to 
- * pass through. There are sections that deal with the basic employee 
- * information and separate methods that deal with the unique differences between
- * each type of employee. Base salary, hourly rate and termination date
- * are all validated on their own.
- * 
+/** This Class is an extension of the New Employee Menu Validation class. 
+ * Its purpose is to validate all content that creates any employee type. 
+ * Before injecting the values in the user must enter in correct information 
+ * for the values to pass through. There are sections that deal with the 
+ * basic employee information and separate methods that deal with the unique 
+ * differences between each type of employee. Base salary, hourly rate and 
+ * termination date are all validated on their own.
  *
  * @author Marco Duarte
  */
-public class NewEmployeeValidation extends EmployeeMenuValidation
+public class NewEmployeeValidation extends NewEmployeeMenuValidation
 {
 //----------------------------------------------------------------------------//
 //------Variables
     private Scanner userInput = new Scanner(System.in);
-    private int hrEmpType;
-    private boolean validMenuBool, validSelectionBool;
+    
+    private boolean validSelectionBool;
     
     //carriers for all valid employee information
     private String firstName, lastName;
     private int age, year, month, day, termYear, termMonth, termDay;
     private double baseSalary, hourlyRateSalary;
 //----------------------------------------------------------------------------//
-//------CONTRUCTOR
+//CONTRUCTOR 
     public NewEmployeeValidation(int hrMenuInput, int hrEmpType)
     {
-        super(hrMenuInput);
-        
-        this.hrEmpType = hrEmpType;
-        
+        super(hrMenuInput, hrEmpType);
     }
-//----------------------------------------------------------------------------//
-//------GET
-    //EMPLOYEE TYPE sub menu selection
-    public int getNewEmployeeType()
-    {
-        
-        int newInput;
-        //run a loop do-while the input is a valid integer
-        //have a try catch block for format exception error handling
-        do
-        {
-            try
-            {
-                newInput = Integer.parseInt(userInput.nextLine());
-                //if the input is a valid menu option
-                if(newInput >= 0 || newInput < 4)
-                {
-                    hrEmpType = newInput;
-                    return hrEmpType;
-                }
-                //invalid, out of range input
-                else
-                {
-                    menu.MenuPrompts.getInvalidMessage();
-                    validMenuBool = true;
-                }
-            }
-            catch(NumberFormatException numberFormat)
-            {
-                System.out.println(numberFormat.toString());
-                System.out.println
-                    ("Error: you must enter a valid integer.\n");
-                validMenuBool = true;
-                //display the main menu prompt
-                menu.MenuPrompts.getHRMessage();
-            }
-            catch(Exception generalError)
-            {
-                System.out.println(generalError.toString());
-                System.out.println("Error: Unexpected error.\n");
-                validMenuBool = true;
-                //display the main menu prompt
-                menu.MenuPrompts.getHRMessage();
-            }
-
-        }while(validMenuBool);
-        
-        return hrEmpType;
-    }//end of get EMPLOYEE TYPE
-//----------------------------------------------------------------------------//   
 //----------------------------------------------------------------------------//
     //NEW FULL TIME EMPLOYEE
     public void getNewFullTime()
@@ -129,7 +75,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
                             termYear, termMonth, termDay, hourlyRateSalary));
     }//end of NEW SEASONAL EMPLOYEE
 //----------------------------------------------------------------------------//
-//------SET
+//SET
     //BASIC EMPLOYEE information
     private void setBasicEmployeeInfo(String firstName, String lastName,
             int age, int year,  int month, int day)
@@ -143,8 +89,8 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
  
     }//end of get basic employee info
 //----------------------------------------------------------------------------//
-//Validate each variable individually
-    //FIRST NAME validation
+//Validate each object variable individually
+    //FIRST NAME
     private void setFirstName(String firstName)
     {
         String newFirstName;
@@ -197,7 +143,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
 
     }//end of SET FIRST NAME
 //----------------------------------------------------------------------------//   
-    //LAST NAME validation
+    //LAST NAME
     private void setLastName(String lastName)
     {
         String newLastName;
@@ -249,7 +195,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
 
     }//end of SET LAST NAME
 //----------------------------------------------------------------------------//    
-    //AGE validation
+    //AGE
     private void setAge(int age)
     {
         int newAge, newInput;
@@ -312,7 +258,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
         }while(validSelectionBool);
     }//end of SET AGE
 //----------------------------------------------------------------------------//
-    //YEAR validation
+    //YEAR
     private void setYear(int year)
     {
         int newYear, newInput;
@@ -376,7 +322,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
   
     }//end of SET YEAR
 //----------------------------------------------------------------------------//
-    //MONTH validation
+    //MONTH
     private void setMonth(int month)
     {
         int newMonth, newInput;
@@ -439,7 +385,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
         }while(validSelectionBool);
     }//end of SET MONTH
 //----------------------------------------------------------------------------//
-    //DAY validation
+    //DAY
     private void setDay(int day)
     {
         int newDay, newInput;
@@ -513,7 +459,8 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             try
             {
                 System.out.println("Please enter the employee's Base Salary:");
-                System.out.println("Reminder: Base Salary starts at $15,000 per year");
+                System.out.println("Reminder:"
+                                + " Base Salary starts at $15,000 per year");
                 newBaseSalary = userInput.nextDouble();
             
                 System.out.println("Is this the correct Base Salary?" 
@@ -704,7 +651,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
   
     }//end of SET TERMINATION YEAR
     
-    //TERMINATION MONTH validation
+    //TERMINATION MONTH
     private void setTermMonth(int termMonth)
     {
         int newTermMonth, newInput;
@@ -768,7 +715,7 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
         }while(validSelectionBool);
     }//end of SET TERMINATION MONTH
     
-    //TERMINATION DAY validation
+    //TERMINATION DAY
     private void setTermDay(int termDay)
     {
         int newTermDay, newInput;
@@ -831,10 +778,5 @@ public class NewEmployeeValidation extends EmployeeMenuValidation
             
         }while(validSelectionBool);
     }//end of SET TERMINATION DAY
-//----------------------------------------------------------------------------//
-    //employee type menu selection
-    private void setEmpType(int hrEmpType)
-    {
-        this.hrEmpType = hrEmpType;
-    }
-}
+
+}//end of class

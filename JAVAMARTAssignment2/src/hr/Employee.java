@@ -1,5 +1,6 @@
 package hr;
-import general.*;
+
+import general.ServiceClass;
 import java.util.*;
 
 /** This is an abstract class for the EMPLOYEE object
@@ -7,6 +8,7 @@ import java.util.*;
  * and date (YYYY-MM-DD) of when 'Employee' was hired
  * the constructor will also create and employee id and add to the roster of 
  * employees in an Array List
+ * 
  * @author Marco Duarte
  */
 
@@ -17,9 +19,10 @@ public abstract class Employee
     private String firstName, lastName;
     private int empId, age, year, month, day;
     private Date dateOfHire;
+    
     private static int empCounter;
 //----------------------------------------------------------------------------//  
-//------CONSTRUCTORS
+//CONSTRUCTORS
     
     //DEFAULT
     public Employee()
@@ -45,7 +48,7 @@ public abstract class Employee
         updateEmpCounter();
     }
 //----------------------------------------------------------------------------//
-//------GET Methods 
+//GET 
     //FIRST NAME
     public String getFirstName()
     {
@@ -108,9 +111,8 @@ public abstract class Employee
     {
         return empCounter;
     }
-    
 //----------------------------------------------------------------------------//
-//------SET
+//SET
     //FIRST NAME
     public void setFirstName(String firstName)
     {
@@ -145,10 +147,9 @@ public abstract class Employee
         //checkEmpId(empId);
         this.empId = empId;
     }
-    
 //----------------------------------------------------------------------------//
-//------OTHER METHODS
-    //------update the employee counter
+//STATIC
+    //UPDATE the employee counter
     private void updateEmpCounter()
     {
         //update the emp count

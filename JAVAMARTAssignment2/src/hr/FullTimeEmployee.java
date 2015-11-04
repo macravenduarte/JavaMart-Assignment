@@ -26,7 +26,7 @@ public class FullTimeEmployee extends Employee
     //BASE SLARY
     public double getBaseSalary()
     {
-        return this.baseSalary;
+        return baseSalary;
     }
     
     public void setBaseSalary(double baseSalary)

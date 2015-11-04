@@ -1,30 +1,32 @@
-
 package validation;
 
-import java.util.Scanner;
+import java.util.*;
 
-/** This Manufacturer class will validate 
+/** This Class is an extension of the Menu Validation class. Its purpose
+ * is to validate the employee type selected by the user. 
  *
  * @author Marco Duarte
  */
-public class ManufacturerValidation extends ProductMenuValidation
+public class NewEmployeeMenuValidation extends MenuValidation
 {
 //----------------------------------------------------------------------------//
-//------Variables
+//Variables
     private Scanner userInput = new Scanner(System.in);
-    private int manuType;
-    private boolean validMenuBool, validSelectionBool;
-    private int manuMenuInput;
-    //carriers for all valid employee information
-    private String manu1 = "Staples", manu2 = "Zep";
+    
+    private int hrEmpType;
+    private boolean validMenuBool;
+
 //----------------------------------------------------------------------------//
-//------CONTRUCTOR
-    public ManufacturerValidation(int prodMenuInput, int manuMenuInput)
-    {   
-        super(prodMenuInput);
+//CONTRUCTOR
+    public NewEmployeeMenuValidation(int hrMenuInput, int hrEmpType)
+    {
+        super(hrMenuInput);
+        
+        this.hrEmpType = hrEmpType;
+        
     }
 //----------------------------------------------------------------------------//
-//------GET
+//GET
     //EMPLOYEE TYPE sub menu selection
     public int getNewEmployeeType()
     {
@@ -38,10 +40,10 @@ public class ManufacturerValidation extends ProductMenuValidation
             {
                 newInput = Integer.parseInt(userInput.nextLine());
                 //if the input is a valid menu option
-                if(newInput >= 0 || newInput < 4)
+                if(newInput >= 0 && newInput < 4)
                 {
-                    manuMenuInput = newInput;
-                    return manuMenuInput;
+                    hrEmpType = newInput;
+                    return hrEmpType;
                 }
                 //invalid, out of range input
                 else
@@ -70,7 +72,8 @@ public class ManufacturerValidation extends ProductMenuValidation
 
         }while(validMenuBool);
         
-        return manuMenuInput;
+        return hrEmpType;
     }//end of get EMPLOYEE TYPE
-//----------------------------------------------------------------------------//
-}//end of MANUFACTURER VALIDATION class
+//----------------------------------------------------------------------------//   
+
+}//end of class

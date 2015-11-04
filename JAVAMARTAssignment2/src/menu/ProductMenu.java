@@ -1,7 +1,6 @@
 package menu;
 
-import inventory.*;
-import validation.ProductMenuValidation;
+import validation.MenuValidation;
 
 /** This class will run through the "PRODUCTS" section of the menu
  *
@@ -10,43 +9,49 @@ import validation.ProductMenuValidation;
 public class ProductMenu extends MainMenu
 {
 //-----------------------------------------------------------------------------/
-//------Variables
+//Variables
     private boolean prodMenuBool;
     private int prodMenuInput;
     
-    private ProductMenuValidation productValidation =
-            new ProductMenuValidation(prodMenuInput);
+    private MenuValidation menuValidation =
+            new MenuValidation(prodMenuInput);
 //----------------------------------------------------------------------------//  
-//------CONSTRUCTOR 
+//CONSTRUCTOR 
     public ProductMenu(boolean menuBool, boolean prodMenuBool)
     {
         super(menuBool);
         this.prodMenuBool = prodMenuBool;
     }
 //-----------------------------------------------------------------------------/
-//------GET 
+//GET 
+    //product menu bool
+    public boolean getProdMenuBool()
+    {
+        return prodMenuBool;
+    }
+    
     //getProducts Menu method will return a user input between 0 and 2 if valid
     public boolean getProductMenu()
     {
                    
-    //-----WHILE 
         while(prodMenuBool)
         {
-            //------display the product message
+            //display the product message
             menu.MenuPrompts.getProductMessage();
             
-            //------validation object with the product menu input
-            prodMenuInput = productValidation.getProdMenuInput();
+            //validation object with the product menu input
+            prodMenuInput = menuValidation.getMenuOpt();
 //-----------------------------------------------------------------------------/
-    //------selection statements
-        //------display the product list and details
+    //selection statements
+        //display the product list and details
             if(prodMenuInput == 1)
             {
                 System.out.println("Display Product list and details HERE:");
 
                 //System.out.println(myProduct.toString()); //test print
             }
-        //------enter a new product
+            
+        //enter a new product
             else if(prodMenuInput == 2)
             {
                 System.out.println("Enter a new product here");
@@ -55,14 +60,15 @@ public class ProductMenu extends MainMenu
                    // "Test manufacturer", "Test Description", "Test Part Num",
                    // 10.00, 20.00, 0.22,50);
             }
-//-----------------------------------------------------------------------------/
-        //------return to the main menu
+
+        //return to the main menu
             else if(prodMenuInput == 0)
             {
                 menu.MenuPrompts.getMainMenuMessage();
                 prodMenuBool = false;
             }
-        //------invalid input
+            
+        //invalid input
             else
             {
                 menu.MenuPrompts.getInvalidMessage();
@@ -70,16 +76,13 @@ public class ProductMenu extends MainMenu
             }
             
         }//-----end of WHILE loop
+        
         return prodMenuBool;
+      
+    }//end of getProductMenu
 //-----------------------------------------------------------------------------/       
-    }//-----end of getProductMenu
-    
-    //get the product menu bool
-    public boolean getProdMenuBool()
-    {
-        return prodMenuBool;
-    }
-    //set prod menu input
+//SET
+    //prod menu input
     private void setProductInput(int prodMenuInput)
     {
         this.prodMenuInput = prodMenuInput;

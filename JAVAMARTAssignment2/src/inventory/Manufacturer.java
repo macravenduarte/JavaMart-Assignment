@@ -2,15 +2,20 @@ package inventory;
 
 /** The Manufacturer class will supply one Manufacturer name. No subsequent
  * products can be made without making a new Manufacturer first or visa versa.
- *For this example the Manufacturer names are: Staples, Zep and are validated
- * in the Manufacturer Validation class.
+ * For this example the Manufacturer names are: Staples and Zep, and are
+ * validated in the Manufacturer Validation class.
+ * 
  * @author Marco Duarte
  */
+
 public class Manufacturer 
 {
 //----------------------------------------------------------------------------//
-//VARIABLES    
+//VARIABLES 
+    //Contructor variable
     private String manufacturer;
+    //Manufacturer name references
+    private String manu1 = "Staples", manu2 = "Zep";
 //----------------------------------------------------------------------------//
 //CONSTRUCTOR
     //default constructor
@@ -19,17 +24,30 @@ public class Manufacturer
         this.manufacturer = manufacturer;
     }
 //----------------------------------------------------------------------------//
-    //GET
+//GET
+    //MANUFACTURER NAMES
     public String getManufacturer()
     {
         return manufacturer;
     }
+    //run the names in an array list and display them
+    public String getManufacturerList()
+    {
+        String manufacturerNames;
+        
+        //take the set of manufatturer names and return it
+        manufacturerNames = manu1 + " " + manu2 + "\n";
+        
+        return manufacturerNames;
+    }
     
-    //SET
+//SET
+    //MANUFACTURER
     private void setManufacturer(String manufacturer)
     {
         this.manufacturer = manufacturer;
     }
+    
     //OVER RIDE
     @Override
     public String toString() 

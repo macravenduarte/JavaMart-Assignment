@@ -1,12 +1,14 @@
 package validation;
 
+import java.util.AbstractCollection.*;
+
 /**This class extends the Employee menu validation. Its purpose is to take the
  * user input for the type of search, whether its by the first name, last name,
  * employee type.
  *
  * @author Marco Duarte
  */
-public class EmpSearchMenuValidation extends EmployeeMenuValidation
+public class EmpSearchMenuValidation extends MenuValidation
 {
     private int hrEmpSearchInput;
     
@@ -16,8 +18,30 @@ public class EmpSearchMenuValidation extends EmployeeMenuValidation
         
         this.hrEmpSearchInput = hrEmpSearchInput;
     }
-    //GET
+//GET SEARCH BY
+    //FIRST NAME 
+    public void getFirstName()
+    {
+        
+    }
     
-    //SET
+    //LAST NAME
+    
+    
+    //AGE
+    
+    
+    //EMPLOYEE TYPE
+    
+    
+    //SALARY
+    
+    
+//SET
+    //HR EMP SEARCH INPUT
+    private void setEmpSearchInput(int hrEmpSearchInput)
+    {
+        this.hrEmpSearchInput = hrEmpSearchInput;
+    }
     
 }//class

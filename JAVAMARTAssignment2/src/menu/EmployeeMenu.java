@@ -1,11 +1,15 @@
 package menu;
 
 import general.JAVAMART;
-import validation.EmployeeMenuValidation;
+import validation.MenuValidation;
 import validation.NewEmployeeValidation;
 
 
-/** This class will run the "Employees" section of the menu
+
+/** This Employee Menu class extends the Main menu super class. Its purpose
+ *  is to run the "Employees" section of the menu, run a validation object to 
+ *  check user input for menu selection and new Employee information to add
+ * to the Employees array list in JAVAMART
  *
  * @author Marco Duarte
  */
@@ -17,11 +21,11 @@ public class EmployeeMenu extends MainMenu
     private boolean hrBool, hrNewEmpBool;
     private int hrMenuInput, hrEmpType;
 //------have a private validation object to validate the user    
-    private EmployeeMenuValidation employeeMenuValidation = 
-            new EmployeeMenuValidation(hrMenuInput);
+    private MenuValidation menuValidation = 
+            new MenuValidation(hrMenuInput);
     
-    private NewEmployeeValidation newEmpValidation = 
-            new NewEmployeeValidation(hrMenuInput, hrEmpType);
+    //private NewEmployeeMenuValidation newEmpValidation = 
+            //new NewEmployeeMenuValidation(hrMenuInput, hrEmpType);
 //----------------------------------------------------------------------------//
 //------CONTRUCTOR
     public EmployeeMenu(boolean menuBool, boolean hrBool)
@@ -40,7 +44,8 @@ public class EmployeeMenu extends MainMenu
         {      
             menu.MenuPrompts.getHRMessage();
             //run the input validation for the employee menu selection
-            hrMenuInput = employeeMenuValidation.getHrMenuInput();
+            
+            hrMenuInput = menuValidation.getMenuOpt();
 //----------------------------------------------------------------------------//
     //------selection statements
         //OPTION 1
@@ -68,25 +73,31 @@ public class EmployeeMenu extends MainMenu
                     //display menu prompt
                     menu.MenuPrompts.getNewEmployeeMenu();
                     //validate the selection of the employee type    
-                    hrEmpType = newEmpValidation.getNewEmployeeType();
+                    hrEmpType = menuValidation.getMenuOpt();
                     //Full-time Employee
                     if(hrEmpType == 1)
                     {
+                        NewEmployeeValidation newEmp = 
+                                new NewEmployeeValidation(hrMenuInput,hrEmpType);
                         System.out.println("Full-time Employee");
-                        newEmpValidation.getNewFullTime();
+                        newEmp.getNewFullTime();
 
                     }
                     //Part-time Employee
                     else if(hrEmpType == 2)
                     {
+                        NewEmployeeValidation newEmp = 
+                                new NewEmployeeValidation(hrMenuInput,hrEmpType);
                         System.out.println("Part-time Employee");
-                        newEmpValidation.getNewPartTime();
+                        newEmp.getNewPartTime();
                     }
                     //Seasonal Employee
                     else if(hrEmpType == 3)
                     {
+                        NewEmployeeValidation newEmp = 
+                                new NewEmployeeValidation(hrMenuInput,hrEmpType);
                         System.out.println("Seasonal Employee");
-                        newEmpValidation.getNewSeasonal();
+                        newEmp.getNewSeasonal();
                     }
                     //exit new employee menu
                     else if(hrEmpType == 0)

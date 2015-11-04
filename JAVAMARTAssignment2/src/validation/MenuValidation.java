@@ -9,6 +9,7 @@ import java.util.*;
 public class MenuValidation extends Validation
 {
     private Scanner userInput = new Scanner(System.in);
+    
     private int menuInput;
     private boolean validInt;
     
@@ -35,7 +36,7 @@ public class MenuValidation extends Validation
 
                 newInput = Integer.parseInt(userInput.nextLine());
                 //if the input is valid
-                if(newInput >= 0 && newInput < 3)
+                if(newInput >= 0 && newInput < 4)
                 {
                     menuInput = newInput;
                     return menuInput;
@@ -69,6 +70,11 @@ public class MenuValidation extends Validation
         return menuInput;
     }//------end of getMenuOpt
     
+    @Override
+    public int getMenu()
+    {
+        return getMenuOpt();
+    }
     //SET
     private void setMainMenuInput(int menuInput)
     {
