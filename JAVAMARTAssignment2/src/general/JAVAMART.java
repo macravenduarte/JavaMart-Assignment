@@ -22,6 +22,7 @@ public class JAVAMART
     public static void main(String[] args)
     {
         //GET the main menu form the menu object
+        
         menu.getMainMenu();
        
     }//------end of main

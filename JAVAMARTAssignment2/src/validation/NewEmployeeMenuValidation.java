@@ -1,6 +1,6 @@
 package validation;
 
-import java.util.*;
+import java.util.Scanner;
 
 /** This Class is an extension of the Menu Validation class. Its purpose
  * is to validate the employee type selected by the user. 
@@ -54,8 +54,8 @@ public class NewEmployeeMenuValidation extends MenuValidation
             }
             catch(NumberFormatException numberFormat)
             {
-                System.out.println(numberFormat.toString());
-                System.out.println
+                System.err.println(numberFormat.toString());
+                System.err.println
                     ("Error: you must enter a valid integer.\n");
                 validMenuBool = true;
                 //display the main menu prompt
@@ -63,8 +63,8 @@ public class NewEmployeeMenuValidation extends MenuValidation
             }
             catch(Exception generalError)
             {
-                System.out.println(generalError.toString());
-                System.out.println("Error: Unexpected error.\n");
+                System.err.println(generalError.toString());
+                System.err.println("Error: Unexpected error.\n");
                 validMenuBool = true;
                 //display the main menu prompt
                 menu.MenuPrompts.getHRMessage();

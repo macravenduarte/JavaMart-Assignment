@@ -2,6 +2,7 @@
 package menu;
 //import java.util.*;
 import validation.MenuValidation;
+
 /** This class super main menu class will walk through the menu and call 
  * back user input in conjunction the validation class objects.
  *
@@ -28,9 +29,10 @@ public class MainMenu extends Menu
 //------GET Main Menu (main method)
     public boolean getMainMenu()
     {      
-//-----WHILE mainBool driving the menu to loop through unless selected otherwise
+        
         while(menuBool)
         {
+            menu.MenuPrompts.getMainMenuMessage();
         //------GET the main menu opt
             menuInput = menuValidation.getMenuOpt();
            

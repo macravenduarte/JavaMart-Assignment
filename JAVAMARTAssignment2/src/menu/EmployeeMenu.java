@@ -38,8 +38,6 @@ public class EmployeeMenu extends MainMenu
 //------GET Employee Menu
     public boolean getEmployeeMenu()
     {
-        
-    //-----WHILE, driving the Employee menu to loop
         while(hrBool)
         {      
             menu.MenuPrompts.getHRMessage();
@@ -47,7 +45,7 @@ public class EmployeeMenu extends MainMenu
             
             hrMenuInput = menuValidation.getMenuOpt();
 //----------------------------------------------------------------------------//
-    //------selection statements
+    //selection statements
         //OPTION 1
             //SEARCH the employee list and details
             if(hrMenuInput == 1)
@@ -66,49 +64,60 @@ public class EmployeeMenu extends MainMenu
             //NEW EMPLOYEE         
             else if(hrMenuInput == 2)
             {
-
-                //WHILE loop employee type selection menu 
+                //display menu prompt
+                menu.MenuPrompts.getNewEmployeeMenu();
+                
                 do
                 {
-                    //display menu prompt
-                    menu.MenuPrompts.getNewEmployeeMenu();
                     //validate the selection of the employee type    
                     hrEmpType = menuValidation.getMenuOpt();
-                    //Full-time Employee
+                    
+                //Full-time Employee
                     if(hrEmpType == 1)
                     {
+                        System.out.println("Full-time Employee");
+                        
+                        //validator object
                         NewEmployeeValidation newEmp = 
                                 new NewEmployeeValidation(hrMenuInput,hrEmpType);
-                        System.out.println("Full-time Employee");
+                        
                         newEmp.getNewFullTime();
 
                     }
-                    //Part-time Employee
+                //Part-time Employee
                     else if(hrEmpType == 2)
                     {
+                        System.out.println("Part-time Employee");
+                        
+                        //validator object
                         NewEmployeeValidation newEmp = 
                                 new NewEmployeeValidation(hrMenuInput,hrEmpType);
-                        System.out.println("Part-time Employee");
+                        
                         newEmp.getNewPartTime();
                     }
-                    //Seasonal Employee
+                //Seasonal Employee
                     else if(hrEmpType == 3)
                     {
+                        System.out.println("Seasonal Employee");
+                        
+                        //validator object
                         NewEmployeeValidation newEmp = 
                                 new NewEmployeeValidation(hrMenuInput,hrEmpType);
-                        System.out.println("Seasonal Employee");
+                        
                         newEmp.getNewSeasonal();
                     }
-                    //exit new employee menu
+                //exit new employee menu
                     else if(hrEmpType == 0)
                     {
                         menu.MenuPrompts.getMenuExitMessage();
                         hrNewEmpBool = false;
+                        
                     }
                     //if the input is invalid display the employee selection
                     //menu options
                     else
                     {
+                        menu.MenuPrompts.getInvalidMessage();
                         menu.MenuPrompts.getNewEmployeeMenu();
                         hrNewEmpBool = true; 
                     }
@@ -132,12 +141,12 @@ public class EmployeeMenu extends MainMenu
 //------SET employee menu input
     private void setHrMenuInput(int hrMenuInput)
     {
-        this.hrMenuInput = hrMenuInput;
+    this.hrMenuInput = hrMenuInput;
     }
     
     private void setNewEmpMenuInput(int hrEmpType)
     {
-        this.hrEmpType = hrEmpType;
+    this.hrEmpType = hrEmpType;
     }
 }//------end of Employee Menu
 

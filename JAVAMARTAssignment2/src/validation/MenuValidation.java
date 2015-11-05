@@ -1,5 +1,6 @@
 package validation;
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /** This class will create an input validation object to validate all user input
  * 
@@ -30,7 +31,7 @@ public class MenuValidation extends Validation
         //have a try catch block for format exception error handling
         do
         {
-            menu.MenuPrompts.getMainMenuMessage();
+
             try
             {
 
@@ -48,21 +49,17 @@ public class MenuValidation extends Validation
                     validInt = true;
                 }
             }
-            catch(NumberFormatException numberFormat)
+            catch(NumberFormatException | InputMismatchException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");
-                validInt = true;
-                //display the main menu prompt
-                menu.MenuPrompts.getMainMenuMessage();
+                validInt = true;               
             }
             catch(Exception generalError)
             {
                 System.err.println(generalError.toString());
                 System.err.println("Error: Unexpected error.\n");
                 validInt = true;
-                //display the main menu prompt
-                menu.MenuPrompts.getMainMenuMessage();
             }
 
         }while(validInt);

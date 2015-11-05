@@ -1,8 +1,11 @@
 package validation;
 
 import general.JAVAMART;
-import hr.*;
-import java.util.*;
+import hr.FullTimeEmployee;
+import hr.PartTimeEmployee;
+import hr.SeasonalEmployee;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /** This Class is an extension of the New Employee Menu Validation class. 
  * Its purpose is to validate all content that creates any employee type. 
@@ -20,7 +23,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
 //------Variables
     private Scanner userInput = new Scanner(System.in);
     
-    private boolean validSelectionBool;
+    private boolean validSelectionBool = false;
     
     //carriers for all valid employee information
     private String firstName, lastName;
@@ -36,7 +39,9 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     //NEW FULL TIME EMPLOYEE
     public void getNewFullTime()
     {
-        //validate the new information from the user
+        
+        //validate the new information from the user and associate with 
+        //the class variables
         setBasicEmployeeInfo(firstName, lastName, age, year, month, day);
         setBaseSalary(baseSalary);
         
@@ -50,7 +55,8 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     //NEW PART TIME EMPLOYEE
     public void getNewPartTime()
     {
-        //validate the new information from the user
+        //validate the new information from the user and associate with 
+        //the class variables
         setBasicEmployeeInfo(firstName, lastName, age, year, month, day);
         setHourlyRateSalary(hourlyRateSalary);
         
@@ -63,7 +69,8 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     //NEW SEASONAL EMPLOYEE
     public void getNewSeasonal()
     {
-        //validate the new information from the user
+        //validate the new information from the user and associate with 
+        //the class variables
         setBasicEmployeeInfo(firstName, lastName, age, year, month, day);
         setHourlyRateSalary(hourlyRateSalary);
         setTermDate(termYear, termMonth, termDay);
@@ -76,9 +83,10 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     }//end of NEW SEASONAL EMPLOYEE
 //----------------------------------------------------------------------------//
 //SET
-    //BASIC EMPLOYEE information
+    //BASIC EMPLOYEE information, first & last names, age, and the year, month
+        // and day they joined
     private void setBasicEmployeeInfo(String firstName, String lastName,
-            int age, int year,  int month, int day)
+            int age, int year, int month, int day)
     {        
         setFirstName(firstName);
         setLastName(lastName);
@@ -115,31 +123,32 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                 {
                     firstName = newFirstName;
                     this.firstName = firstName;
+                    validSelectionBool = true;
                 }
                 else if (newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             
-        }while(validSelectionBool);
+        }while(!validSelectionBool);
 
     }//end of SET FIRST NAME
 //----------------------------------------------------------------------------//   
@@ -184,9 +193,9 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                 System.err.println("Error: you must enter a valid integer.\n");
                 validSelectionBool = true;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
                 validSelectionBool = true;
             }
@@ -213,49 +222,50 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                 newInput = userInput.nextInt();
                 if(newInput == 1)
                 {
-                    //16 years old is the legal working age
-                    if(newAge >= 16)
+                    //16 years old is the legal working age, 65 for retirement
+                    if(newAge >= 16 && newAge <= 65)
                     {
                         age = newAge;
                         this.age = age;
+                        validSelectionBool = true;
                     }
                     else
                     {
                         menu.MenuPrompts.getInvalidMessage();
-                        validSelectionBool = true;
+                        validSelectionBool = false;
                     }
                 }
                 else if(newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
                 System.err.println("Error: You entered a letter. \n"
                         + "You must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
 
-        }while(validSelectionBool);
+        }while(!validSelectionBool);
     }//end of SET AGE
 //----------------------------------------------------------------------------//
     //YEAR
@@ -281,44 +291,45 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                     {
                         year = newYear;
                         this.year = year;
+                        validSelectionBool = true;
                     }
                     else
                     {
                         menu.MenuPrompts.getInvalidMessage();
-                        validSelectionBool = true;
+                        validSelectionBool = false;
                     }
                 }
                 else if(newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
                 System.err.println("Error: You entered a letter. \n"
                         + "You must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             
-        }while(validSelectionBool);
+        }while(!validSelectionBool);
   
     }//end of SET YEAR
 //----------------------------------------------------------------------------//
@@ -345,44 +356,45 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                     {
                         month = newMonth;
                         this.month = month;
+                        validSelectionBool = true;
                     }
                     else
                     {
                         menu.MenuPrompts.getInvalidMessage();
-                        validSelectionBool = true;
+                        validSelectionBool = false;
                     }
                 }
                 else if(newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
                 System.err.println("Error: You entered a letter. \n"
                         + "You must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             
-        }while(validSelectionBool);
+        }while(!validSelectionBool);
     }//end of SET MONTH
 //----------------------------------------------------------------------------//
     //DAY
@@ -407,44 +419,45 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                     {
                         day = newDay;
                         this.day = day;
+                        validSelectionBool = true;
                     }
                     else
                     {
                         menu.MenuPrompts.getInvalidMessage();
-                        validSelectionBool = true;
+                        validSelectionBool = false;
                     }
                 }
                 else if(newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
                 System.err.println("Error: You entered a letter. \n"
                         + "You must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             
-        }while(validSelectionBool);
+        }while(!validSelectionBool);
     }//end of SET DAY
 //----------------------------------------------------------------------------//
 //----------------------------------------------------------------------------// 
@@ -474,41 +487,42 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                     {
                         baseSalary = newBaseSalary;
                         this.baseSalary = baseSalary;
+                        validSelectionBool = true;
                     }
                     else
                     {
                         menu.MenuPrompts.getInvalidMessage();
-                        validSelectionBool = true;
+                        validSelectionBool = false;
                     }
                 }
                 else if(newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid double.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
                 System.err.println("Error: You entered a letter.\n"
                         + "You must enter a valid double.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             
         }while(validSelectionBool);
@@ -540,47 +554,48 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                     {
                         hourlyRateSalary = newHourlySalary;
                         this.hourlyRateSalary = hourlyRateSalary;
+                        validSelectionBool = true;
                     }
                     else
                     {
                         menu.MenuPrompts.getInvalidMessage();
-                        validSelectionBool = true;
+                        validSelectionBool = false;
                     }
                 }
                 else if(newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid double.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
                 System.err.println("Error: You entered a letter. \n"
                         + "You must enter a valid double.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             
         }while(validSelectionBool);
     }//end of SET HOURLY RATE
 //----------------------------------------------------------------------------//    
-    //TERMINATION DATE for SEASONAL EMPLOYEES   
+    //TERMINATION year, month and day for SEASONAL EMPLOYEES   
     private void setTermDate(int termYear,int termMonth,int termDay)
     {
         setTermYear(termYear);
@@ -610,41 +625,42 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                     {
                         termYear = newTermYear;
                         this.termYear = termYear;
+                        validSelectionBool = true;
                     }
                     else
                     {
                         menu.MenuPrompts.getInvalidMessage();
-                        validSelectionBool = true;
+                        validSelectionBool = false;
                     }
                 }
                 else if(newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
                 System.err.println("Error: You entered a letter. \n"
                         + "You must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             
         }while(validSelectionBool);
@@ -675,41 +691,42 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                     {
                         termMonth = newTermMonth;
                         this.termMonth = termMonth;
+                        validSelectionBool = true;
                     }
                     else
                     {
                         menu.MenuPrompts.getInvalidMessage();
-                        validSelectionBool = true;
+                        validSelectionBool = false;
                     }
                 }
                 else if(newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
                 System.err.println("Error: You entered a letter. \n"
                         + "You must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             
         }while(validSelectionBool);
@@ -739,41 +756,42 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                     {
                         termDay = newTermDay;
                         this.termDay = termDay;
+                        validSelectionBool = true;
                     }
                     else
                     {
                         menu.MenuPrompts.getInvalidMessage();
-                        validSelectionBool = true;
+                        validSelectionBool = false;
                     }
                 }
                 else if(newInput == 0)
                 {
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
                 else
                 {
                     menu.MenuPrompts.getInvalidMessage();
-                    validSelectionBool = true;
+                    validSelectionBool = false;
                 }
             }
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             catch(InputMismatchException inputMismatch)
             {
                 System.err.println(inputMismatch.toString());
                 System.err.println("Error: You entered a letter. \n"
                         + "You must enter a valid integer.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
-            catch(Exception generalError)
+            catch(Exception e)
             {
-                System.err.println(generalError.toString());
+                System.err.println(e.toString());
                 System.err.println("Error: Unexpected error.\n");
-                validSelectionBool = true;
+                validSelectionBool = false;
             }
             
         }while(validSelectionBool);
