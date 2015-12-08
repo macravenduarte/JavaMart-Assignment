@@ -37,8 +37,8 @@ public class MenuPrompts
         System.out.println("Manufacturer Selection");
         System.out.println("Please enter a choice:");
         System.out.println("1: New Manufacturer");
-        System.out.println("2: Staples");
-        System.out.println("3: Zep");
+        System.out.println("2: Bestbuy");
+        System.out.println("3: Acme");
         System.out.println("0: Exit");
         System.out.println("---------------------------------------------\n");
     }
@@ -55,6 +55,21 @@ public class MenuPrompts
         System.out.println("---------------------------------------------\n");
     }
 
+    //static SEARCH EMPLOYEES MENU message
+    public static void getEmpSearchMenu()
+    {
+        System.out.println("\n---------------------------------------------");
+        System.out.println("Employee Search");
+        System.out.println("Please enter a choice to search by an Employee's:");
+        System.out.println("1: First Name");
+        System.out.println("2: Last Name");
+        System.out.println("3: Age");
+        System.out.println("4: Employee type");
+        System.out.println("5: Salary");
+        System.out.println("0: Exit");
+        System.out.println("---------------------------------------------\n");
+        
+    }
     //static NEW EMPLOYEE MENU message
     public static void getNewEmployeeMenu()
     {

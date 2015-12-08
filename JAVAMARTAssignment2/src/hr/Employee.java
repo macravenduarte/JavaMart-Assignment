@@ -19,7 +19,6 @@ public abstract class Employee
     private String firstName, lastName, gender;
     private int empId, age, year, month, day;
     private Date dateOfHire;
-    
     private static int empCounter;
 //----------------------------------------------------------------------------//  
 //CONSTRUCTORS
@@ -187,4 +186,6 @@ public abstract class Employee
         return employeeInfo;
     }
     
+    abstract String getEmpType();
+            
 }//end of class

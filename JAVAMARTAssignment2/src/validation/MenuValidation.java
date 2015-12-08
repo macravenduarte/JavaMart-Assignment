@@ -31,7 +31,6 @@ public class MenuValidation extends Validation
         //have a try catch block for format exception error handling
         do
         {
-
             try
             {
 
@@ -49,7 +48,7 @@ public class MenuValidation extends Validation
                     validInt = true;
                 }
             }
-            catch(NumberFormatException | InputMismatchException numberFormat)
+            catch(InputMismatchException numberFormat)
             {
                 System.err.println(numberFormat.toString());
                 System.err.println("Error: you must enter a valid integer.\n");

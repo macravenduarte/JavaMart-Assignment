@@ -26,17 +26,16 @@ public class MainTabbedPageGui extends JFrame
         JLabel lblPanelOne = 
                     new JLabel("Employees", SwingConstants.CENTER);
         JPanel hrPanel = new JMHRPanel();
-        
+        //add the employee tab to the panel
         hrPanel.add(lblPanelOne);
         tabPane.addTab("Employee Tab", null, hrPanel, "First Panel");
         
         //tab2
         JLabel lblPanelTwo = 
                     new JLabel("Products", SwingConstants.CENTER);
-        //the sales tab will be empty for this exp
         JPanel productsPanel = 
-                    new JPanel();
-        
+                    new JMProductsPanel();
+        //add the products tab to the panel
         productsPanel.add(lblPanelTwo);
         tabPane.addTab("Products Tab",null, productsPanel, "Second Panel");
         
