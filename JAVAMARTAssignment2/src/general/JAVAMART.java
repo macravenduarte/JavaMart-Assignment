@@ -1,7 +1,9 @@
 package general;
 import java.util.*;
 import menu.MainMenu;
+import gui.*;
 
+import javax.swing.JFrame;
 
 
 /** This class will run the JAVAMART application through a menu driven object
@@ -12,8 +14,8 @@ import menu.MainMenu;
  * 
  * @author Marco Duarte
  */
-public class JAVAMART 
-{
+public class JAVAMART
+{   
     public static ArrayList<hr.Employee> Employees = new ArrayList(); 
     public static ArrayList<inventory.Product> Products = new ArrayList(); 
     private static MainMenu menu = new MainMenu(true);
@@ -21,8 +23,13 @@ public class JAVAMART
     //------main method
     public static void main(String[] args)
     {
-        //GET the main menu form the menu object
+        //start gui
+        MainTabbedPageGui gui = new MainTabbedPageGui();
+        gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gui.pack();
+        gui.setVisible(true);
         
+        //GET the main menu form the menu object       
         menu.getMainMenu();
        
     }//------end of main

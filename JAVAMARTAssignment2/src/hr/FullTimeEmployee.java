@@ -13,10 +13,10 @@ public class FullTimeEmployee extends Employee
     private double baseSalary;
 //----------------------------------------------------------------------------//  
 //------CONSTRUCTORS   
-    public FullTimeEmployee(String firstName, String lastName, int age, 
-            int year, int month, int day, double baseSalary)
+    public FullTimeEmployee(String firstName, String lastName, String gender,
+            int age, int year, int month, int day, double baseSalary)
     {
-        super(firstName, lastName, age, year, month, day);
+        super(firstName, lastName, gender, age, year, month, day);
         
         this.baseSalary = baseSalary;
     }//------end of full time employee constructor

@@ -26,7 +26,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     private boolean validSelectionBool = false;
     
     //carriers for all valid employee information
-    private String firstName, lastName;
+    private String firstName, lastName, gender;
     private int age, year, month, day, termYear, termMonth, termDay;
     private double baseSalary, hourlyRateSalary;
 //----------------------------------------------------------------------------//
@@ -42,13 +42,13 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
         
         //validate the new information from the user and associate with 
         //the class variables
-        setBasicEmployeeInfo(firstName, lastName, age, year, month, day);
+        setBasicEmployeeInfo(firstName, lastName, gender, age, year, month, day);
         setBaseSalary(baseSalary);
         
         //add the new Fulltime employee to the EMPLOYEE Array List
         JAVAMART.Employees.add
             (new FullTimeEmployee
-                (firstName, lastName, age, year, month, day, baseSalary));
+                (firstName, lastName, gender, age, year, month, day, baseSalary));
         
     }//end of GET NEW FULL TIME EMPLOYEE
 //----------------------------------------------------------------------------// 
@@ -57,13 +57,14 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     {
         //validate the new information from the user and associate with 
         //the class variables
-        setBasicEmployeeInfo(firstName, lastName, age, year, month, day);
+        setBasicEmployeeInfo(firstName, lastName, gender, age, year, month, day);
         setHourlyRateSalary(hourlyRateSalary);
         
         //add the new Part time employee to the EMPLOYEE Array List
         JAVAMART.Employees.add
             (new PartTimeEmployee
-                (firstName, lastName, age, year, month, day, hourlyRateSalary));
+                (firstName, lastName, gender, age, year, 
+                            month, day, hourlyRateSalary));
     }//end of NEW PART TIME EMPLOYEE
 //----------------------------------------------------------------------------//
     //NEW SEASONAL EMPLOYEE
@@ -71,25 +72,26 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     {
         //validate the new information from the user and associate with 
         //the class variables
-        setBasicEmployeeInfo(firstName, lastName, age, year, month, day);
+        setBasicEmployeeInfo(firstName, lastName, gender, age, year, month, day);
         setHourlyRateSalary(hourlyRateSalary);
         setTermDate(termYear, termMonth, termDay);
         
         //add the new Seasonal employee to the EMPLOYEE Array List
         JAVAMART.Employees.add
                 (new SeasonalEmployee
-                    (firstName, lastName, age, year, month, day, 
+                    (firstName, lastName, gender, age, year, month, day, 
                             termYear, termMonth, termDay, hourlyRateSalary));
     }//end of NEW SEASONAL EMPLOYEE
 //----------------------------------------------------------------------------//
 //SET
     //BASIC EMPLOYEE information, first & last names, age, and the year, month
         // and day they joined
-    private void setBasicEmployeeInfo(String firstName, String lastName,
-            int age, int year, int month, int day)
+    private void setBasicEmployeeInfo(String firstName, String lastName, 
+            String gender, int age, int year, int month, int day)
     {        
         setFirstName(firstName);
         setLastName(lastName);
+        setGender(gender);
         setAge(age);
         setYear(year);
         setMonth(month);
@@ -204,6 +206,72 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
 
     }//end of SET LAST NAME
 //----------------------------------------------------------------------------//    
+    //GENDER
+    private void setGender(String gender)
+    {
+        boolean outerSelect = true;
+        
+        do
+        {
+            try
+            {
+                if( gender.toLowerCase().contentEquals("male") )
+                {
+                    menu.MenuPrompts.getConfirm();
+                    if(userInput.nextInt() == 1)
+                    {
+                        this.gender = gender;
+                        outerSelect = false;
+                    }
+                    else if(userInput.nextInt() == 0)
+                    {
+                        outerSelect = true;
+                    }
+                    else
+                    {
+                        System.out.println("No valid selection was made."
+                                                    + " Please try again");
+                        outerSelect = true;
+                    }
+                }//end if male
+                else if( gender.toLowerCase().contentEquals("female")  )
+                {
+                    menu.MenuPrompts.getConfirm();
+                    if(userInput.nextInt() == 1)
+                    {
+                        this.gender = gender;
+                        outerSelect = false;
+                    }
+                    else if(userInput.nextInt() == 0)
+                    {
+                        outerSelect = true;
+                    }
+                    else
+                    {
+                        System.out.println("No valid selection was made."
+                                                    + " Please try again");
+                        outerSelect = true;
+                    }
+                }//end else if female
+                else
+                {
+                    System.out.println("No gender selected. Please select a gender.");
+
+                }
+            }
+            //catch()
+            //{
+                
+            //}
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                System.err.print("Unexcpected error. Please start again.");
+            }
+        } while(outerSelect);
+        
+    }//end of set Gender
+
     //AGE
     private void setAge(int age)
     {

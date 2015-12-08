@@ -14,14 +14,14 @@ public class Product extends Manufacturer
 //----------------------------------------------------------------------------//  
     //VARIABLES
     private int productId;
-    private String productName, category,description, partNum;
+    private String productName, category, description, partNum;
     private double productCost, productPrice;
     
     private static int productCounter;
 //----------------------------------------------------------------------------//  
     //CONSTRUCTOR
     public Product
-        (String productName,String category, String manufacturer,
+        (String productName, String category, String manufacturer,
                 String description, String partNum)
     {
         super(manufacturer);

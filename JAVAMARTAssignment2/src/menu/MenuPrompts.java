@@ -67,6 +67,12 @@ public class MenuPrompts
         System.out.println("---------------------------------------------\n");
     }
     
+    //static CONFIRMATION MESSAGE
+    public static void getConfirm()
+    {
+        System.out.println("Please confirm your selection");
+        System.out.println("1 for yes, 0 for no");
+    }
     //static INVALID INPUT
     public static void getInvalidMessage()
     {

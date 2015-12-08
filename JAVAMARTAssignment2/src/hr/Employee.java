@@ -16,7 +16,7 @@ public abstract class Employee
 {
 //----------------------------------------------------------------------------//  
 //VARIABLES
-    private String firstName, lastName;
+    private String firstName, lastName, gender;
     private int empId, age, year, month, day;
     private Date dateOfHire;
     
@@ -30,7 +30,7 @@ public abstract class Employee
     
 //------OVERLOADED with first name, last name, age, position, 
     //------and date (YYYY-MM-DD) of when 'Employee' was hired
-    public Employee(String firstName, String lastName, int age, 
+    public Employee(String firstName, String lastName, String gender, int age, 
             int year, int month, int day)
     {
         this.firstName = firstName;
@@ -67,6 +67,11 @@ public abstract class Employee
         return firstName + " " + lastName;
     }
     
+    //GENDER
+    public String getGender()
+    {
+        return this.gender;
+    }
     //AGE
     public int getAge()
     {
@@ -124,7 +129,11 @@ public abstract class Employee
     {
         this.lastName = lastName;
     }
-    
+    //GENDER
+    public void setGender(String gender)
+    {
+        this.gender = gender;
+    }
     //AGE
     public void setAge(int age)
     {
@@ -172,6 +181,7 @@ public abstract class Employee
         employeeInfo += "\nName:\t\t" + getFullName();
         employeeInfo += "\nId:\t\t" + getEmpId();
         employeeInfo += "\nAge:\t\t" + getAge();
+        employeeInfo += "\nGender:\t\t" + getGender();
         employeeInfo += "\nHire-Date:\t\t" + getDateOfHire();
     
         return employeeInfo;

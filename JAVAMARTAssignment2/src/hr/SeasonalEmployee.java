@@ -21,11 +21,11 @@ public class SeasonalEmployee extends PartTimeEmployee
     
 //-----------------------------------------------------------------------------/
 //------SeasonalEmployee constructor
-    public SeasonalEmployee(String firstName, String lastName, int age, 
+    public SeasonalEmployee(String firstName, String lastName, String gender, int age, 
             int year, int month, int day, int termYear, int termMonth, 
             int termDay, double hourlyRateSalary)
     {
-        super(firstName, lastName, age, year, month, day, hourlyRateSalary);
+        super(firstName, lastName, gender, age, year, month, day, hourlyRateSalary);
         
         this.termYear = termYear;
         this.termMonth = termMonth;

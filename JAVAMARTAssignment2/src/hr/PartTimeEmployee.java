@@ -14,10 +14,10 @@ public class PartTimeEmployee extends Employee
 //------CONSTRUCTORS    
     //create part time employee constructor
     public PartTimeEmployee
-        (String firstName, String lastName, int age, int year, int month, 
+        (String firstName, String lastName, String gender, int age, int year, int month, 
                 int day, double hourlyRateSalary)
     {
-        super(firstName, lastName, age, year, month, day);
+        super(firstName, lastName, gender, age, year, month, day);
         
     }//------end of part time employee constructor
 //----------------------------------------------------------------------------//          
