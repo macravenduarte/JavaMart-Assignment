@@ -11,14 +11,17 @@ public class FullTimeEmployee extends Employee
 {
 //------CLASS instance variables
     private double baseSalary;
+    private String empType;
 //----------------------------------------------------------------------------//  
 //------CONSTRUCTORS   
-    public FullTimeEmployee(String firstName, String lastName, String gender,
-            int age, int year, int month, int day, double baseSalary)
+    public FullTimeEmployee
+            (String firstName, String lastName, String gender, int age, 
+                int year, int month, int day, double baseSalary, String empType)
     {
         super(firstName, lastName, gender, age, year, month, day);
         
         this.baseSalary = baseSalary;
+        this.empType = empType;
     }//------end of full time employee constructor
     
 //----------------------------------------------------------------------------//
@@ -35,10 +38,17 @@ public class FullTimeEmployee extends Employee
     }
 //EMPLOPYEE TYPE
 //GET
+    public String getEmployeeType()
+    {
+        return this.empType;
+    }
     
-    ASD
 //SET 
-    ASD
+    private void setEmployeeType(String empType)
+    {
+        empType = FullTimeEmployee.class.getSimpleName();
+        this.empType = empType;
+    }
     
 //------OVERRIDE   
     //over ride the salary to get the base salary
@@ -59,10 +69,7 @@ public class FullTimeEmployee extends Employee
     @Override
     public String getEmpType()
     {
-        String type = getType();
-        
-        return type;
-        
+        return getEmployeeType();
     }
 }//------end of fulltime employee cladd
     

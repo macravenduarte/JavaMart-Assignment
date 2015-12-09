@@ -20,13 +20,13 @@ import java.util.Scanner;
 public class NewEmployeeValidation extends NewEmployeeMenuValidation
 {
 //----------------------------------------------------------------------------//
-//------Variables
+//Variables
     private Scanner userInput = new Scanner(System.in);
     
     private boolean validSelectionBool = false;
     
     //carriers for all valid employee information
-    private String firstName, lastName, gender;
+    private String firstName, lastName, gender, empType;
     private int age, year, month, day, termYear, termMonth, termDay;
     private double baseSalary, hourlyRateSalary;
 //----------------------------------------------------------------------------//
@@ -48,7 +48,8 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
         //add the new Fulltime employee to the EMPLOYEE Array List
         JAVAMART.Employees.add
             (new FullTimeEmployee
-                (firstName, lastName, gender, age, year, month, day, baseSalary));
+                (firstName, lastName, gender, age, year, month, day, baseSalary, 
+                        empType));
         
     }//end of GET NEW FULL TIME EMPLOYEE
 //----------------------------------------------------------------------------// 
@@ -64,7 +65,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
         JAVAMART.Employees.add
             (new PartTimeEmployee
                 (firstName, lastName, gender, age, year, 
-                            month, day, hourlyRateSalary));
+                            month, day, hourlyRateSalary, empType));
     }//end of NEW PART TIME EMPLOYEE
 //----------------------------------------------------------------------------//
     //NEW SEASONAL EMPLOYEE
@@ -80,7 +81,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
         JAVAMART.Employees.add
                 (new SeasonalEmployee
                     (firstName, lastName, gender, age, year, month, day, 
-                            termYear, termMonth, termDay, hourlyRateSalary));
+                    hourlyRateSalary, empType, termYear, termMonth, termDay));
     }//end of NEW SEASONAL EMPLOYEE
 //----------------------------------------------------------------------------//
 //SET
@@ -107,8 +108,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
         int newInput;
         
         do
-        {
-            
+        {   
             try
             {
                 //prompt
@@ -136,7 +136,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
                     menu.MenuPrompts.getInvalidMessage();
                     validSelectionBool = false;
                 }
-            }
+            }//end of try block
             catch(NumberFormatException numberFormat)
             {
                 System.err.println(numberFormat.toString());
@@ -259,10 +259,6 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
 
                 }
             }
-            //catch()
-            //{
-                
-            //}
             catch(Exception e)
             {
                 e.printStackTrace();

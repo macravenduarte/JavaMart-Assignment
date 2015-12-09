@@ -40,7 +40,7 @@ public class JMEmpSearchPanel extends JPanel
     //constructor
     public JMEmpSearchPanel()
     {
-        setLayout ( new GridLayout(5,2) );
+        setLayout ( new GridLayout(0,2) );
         
     //create 
         //labels
@@ -49,16 +49,16 @@ public class JMEmpSearchPanel extends JPanel
         lblPosition = new JLabel ("Position");
         lblSalary = new JLabel ("Salary");
         //text field
-        txtSearch = new JTextField (15);
+        txtSearch = new JTextField (2);
         //text area
-        txtResult = new JTextArea();
+        txtResult = new JTextArea(4,4);
         //combobox
         cmbName = new JComboBox<>(name);
         cmbPosition = new JComboBox<>(position);
         cmbSalary = new JComboBox<>(salary);
         
         //border
-        setBorder(BorderFactory.createTitledBorder("") );
+        setBorder(BorderFactory.createTitledBorder("Employee Search") );
         
     //add
         //SearchType

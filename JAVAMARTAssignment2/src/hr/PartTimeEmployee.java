@@ -8,33 +8,53 @@ package hr;
 //----------------------------------------------------------------------------//  
 public class PartTimeEmployee extends Employee
 {  
-//------CLASS instance variables
+//CLASS instance variables
     private double hourlyRateSalary;
+    protected String empType;
 //----------------------------------------------------------------------------//  
-//------CONSTRUCTORS    
+//CONSTRUCTORS    
     //create part time employee constructor
     public PartTimeEmployee
-        (String firstName, String lastName, String gender, int age, int year, int month, 
-                int day, double hourlyRateSalary)
+                (String firstName, String lastName, String gender, int age, 
+                        int year, int month, int day, double hourlyRateSalary,
+                        String empType)
     {
         super(firstName, lastName, gender, age, year, month, day);
-        
-    }//------end of part time employee constructor
+        this.hourlyRateSalary = hourlyRateSalary;
+        this.empType  = empType;
+    }//end of part time employee constructor
 //----------------------------------------------------------------------------//          
-//------METHODS
+//GET 
+    //HOURLIY SALARY
     public double getHourlyRateSalary()
     {
-        return this.hourlyRateSalary;
+        return hourlyRateSalary;
     }
-//------OVERRIDE    
-    //------salary
+    //EMPLOPYEE TYPE
+    public String getEmployeeType()
+    {
+        return empType;
+    }
+    //SET 
+    private void setEmployeeType(String empType)
+    {
+        empType = PartTimeEmployee.class.getSimpleName();
+        this.empType = empType;
+    }
+//OVERRIDE    
+    //salary
     @Override
     public double salary()
     {
         return getHourlyRateSalary();
     }
     
-    //------toString method  
+    @Override
+    public String getEmpType()
+    {
+        return getEmployeeType();
+    }
+    //toString method  
     @Override
     public String toString() 
     {

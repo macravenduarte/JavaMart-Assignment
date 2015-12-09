@@ -23,7 +23,7 @@ public class JMProductsPanel extends JPanel
     public JMProductsPanel()
     {
         //set the layout
-        setLayout (new GridLayout(8,1));
+        setLayout (new GridLayout(0,1));
         
         //create the labels with matching text fields with strings for names in parenthesis
         lblProductName = new JLabel("ProductName");

@@ -14,23 +14,28 @@ import java.util.*;
 public class SeasonalEmployee extends PartTimeEmployee
 {
 //-----------------------------------------------------------------------------/
-//------Variables
-    //------end of season date for termination    
+//Variables
+    //end of season date for termination    
     private Date seasonTermination;
     private int termYear,termMonth, termDay;
     
+    
 //-----------------------------------------------------------------------------/
-//------SeasonalEmployee constructor
-    public SeasonalEmployee(String firstName, String lastName, String gender, int age, 
-            int year, int month, int day, int termYear, int termMonth, 
-            int termDay, double hourlyRateSalary)
+//CONSTRUCTOR
+    public SeasonalEmployee
+                (String firstName, String lastName, String gender, int age, 
+                    int year, int month, int day, double hourlyRateSalary,
+                    String empType, int termYear, int termMonth,int termDay)
     {
-        super(firstName, lastName, gender, age, year, month, day, hourlyRateSalary);
+        super(  firstName, lastName, gender, age, 
+                year, month, day, hourlyRateSalary,
+                empType);
         
         this.termYear = termYear;
         this.termMonth = termMonth;
         this.termDay = termDay;
-        
+        //set the different employee type name
+        setEmployeeType(empType);
     //generate a gregorian calender object for the end of season termination date
         GregorianCalendar cal = 
                 new GregorianCalendar(termYear, termMonth-1, termDay);
@@ -39,7 +44,7 @@ public class SeasonalEmployee extends PartTimeEmployee
     }//------end of Seasonal Employee constructor
     
 //-----------------------------------------------------------------------------/
-//------methods
+//METHODS
     //GET
     //SEASON TERMINATION DATE
     public Date getSeasonTermination()
@@ -61,8 +66,9 @@ public class SeasonalEmployee extends PartTimeEmployee
     {
         return termDay;
     }
+    
 //-----------------------------------------------------------------------------/
-    //SET
+//SET
     //termination date for the seasonal employee
     public void setEndOfSeasonTermination
         (int termYear, int termMonth, int termDay)
@@ -72,7 +78,21 @@ public class SeasonalEmployee extends PartTimeEmployee
         this.termDay = termDay;
     }
 
-    //over ride toString to include Termination Date
+    //employee type
+    private void setEmployeeType(String empType)
+    {
+        empType = SeasonalEmployee.class.getSimpleName();
+        super.empType = empType;
+    }
+//OVERRIDE
+    //EMPLOPYEE TYPE
+    @Override
+    public String getEmployeeType()
+    {
+        return empType;
+    }
+
+    //toString to include Termination Date
     @Override
     public String toString() 
     {

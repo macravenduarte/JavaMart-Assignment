@@ -9,15 +9,15 @@ import javax.swing.*;
  */
 public class JMHRPanel extends JPanel
 {
-//components
+//component variables
     //labels
     private final JLabel    lblFirstName, lblLastName, lblAge, 
                             lblPosition, lblHireYear, lblHireMonth, 
-                            DateOfHireJLabel, lblCommissionRate;
+                            DateOfHireJLabel;
     
     //text fields
     private final JTextField    txtFirstName, txtLastName, 
-                                txtAge, txtCommissionRate;
+                                txtAge;
     
     //buttons
     private ButtonGroup bg;
@@ -28,13 +28,18 @@ public class JMHRPanel extends JPanel
     
     private static final String[] 
             year = {"2014", "2015", "2016" },
-            month = {"Jan", "Feb", "Mar", "Apr", "May", "Aug", "Sept", "Oct",
-                "Nov", "Dec"},
-            day = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
-                "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
-                "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"},
-            position = {"sales", "admin", "manager", "supervisor"};       
-    
+            month = {   "Jan", "Feb", "Mar", "Apr",
+                        "May", "June", "July", "Aug",
+                        "Sept", "Oct", "Nov", "Dec"},
+            day = { "1", "2", "3", "4", "5",
+                    "6", "7", "8", "9", "10", 
+                    "11", "12", "13", "14", "15",
+                    "16", "17", "18", "19", "20",
+                    "21", "22", "23", "24", "25",
+                    "26", "27", "28", "29", "30", 
+                    "31"},
+            position = {"Full-time", "Part-time", "Seasonal"};       
+//end of component variables
     //constructor
     public JMHRPanel()
     {
@@ -42,20 +47,18 @@ public class JMHRPanel extends JPanel
         setLayout (new GridLayout(5,2) );
         
         //labels
-        lblFirstName = new JLabel ("FirstName");
-        lblLastName = new JLabel ("LastName");
+        lblFirstName = new JLabel ("First Name");
+        lblLastName = new JLabel ("Last Name");
         lblAge = new JLabel ("Age");
         lblPosition = new JLabel ("Position");
-        lblHireYear = new JLabel ("HireYear");
-        lblHireMonth = new JLabel ("HireMonth");
-        DateOfHireJLabel = new JLabel ("DateOfHire");
-        lblCommissionRate = new JLabel ("CommissionRate");
+        lblHireYear = new JLabel ("Hire Year");
+        lblHireMonth = new JLabel ("Hire Month");
+        DateOfHireJLabel = new JLabel ("Date Of Hire");
         
         //text fields
-        txtFirstName = new JTextField (15);
-        txtLastName = new JTextField (15);
+        txtFirstName = new JTextField (10);
+        txtLastName = new JTextField (10);
         txtAge = new JTextField (2);
-        txtCommissionRate = new JTextField (15);
         
         //radioButtons
         RDBGenderMale = new JRadioButton ("Male");
@@ -93,10 +96,7 @@ public class JMHRPanel extends JPanel
         add(cmbDay);
         //plus position
         add(lblPosition);
-        add(cmbPosition);
-        //commission
-        add(lblCommissionRate);
-        add(txtCommissionRate);       
+        add(cmbPosition);      
         
-    }
-}
+    }//end of JMHRPanel constructor
+}//end of class

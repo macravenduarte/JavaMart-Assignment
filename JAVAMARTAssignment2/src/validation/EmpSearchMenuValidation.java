@@ -1,6 +1,7 @@
 package validation;
 
-import general.JAVAMART;
+import general.*;
+import hr.Employee;
 import java.util.Scanner;
 
 
@@ -30,14 +31,10 @@ public class EmpSearchMenuValidation extends MenuValidation
         
         searchFName = userInput.next();
         
-        for(int i = 0; i < JAVAMART.Employees.size(); i++)
-        {
-            if(JAVAMART.Employees.get(i).getFirstName() == searchFName)
-            {
-                System.out.print(JAVAMART.Employees.get(i).toString());
-            }
-            else
-            {
+        for (Employee Employee : JAVAMART.Employees) {
+            if (Employee.getFirstName().matches(searchFName)) {
+                System.out.print(Employee.toString());
+            } else {
                 System.out.println("No Employee by that first name");
             }
         }
@@ -53,7 +50,7 @@ public class EmpSearchMenuValidation extends MenuValidation
         
         for(int i = 0; i < JAVAMART.Employees.size(); i++)
         {
-            if(JAVAMART.Employees.get(i).getLastName() == searchLName)
+            if(JAVAMART.Employees.get(i).getLastName().matches(searchLName))
             {
                 System.out.print(JAVAMART.Employees.get(i).toString());
             }
@@ -88,41 +85,36 @@ public class EmpSearchMenuValidation extends MenuValidation
     //EMPLOYEE TYPE
     public void getEmpType()
     {
-        finish here
         String searchEmpType;
-        System.out.println("Please enter the first name");
+        System.out.println("Please select one of the types of Employees.");
         
         searchEmpType = userInput.next();
         
         for(int i = 0; i < JAVAMART.Employees.size(); i++)
         {
-            if(JAVAMART.Employees.get(i). == searchEmpType)
+            if( JAVAMART.Employees.get(i).getClass().getSimpleName().matches(searchEmpType))
             {
-                System.out.print(JAVAMART.Employees.get(i).toString());
+                System.out.println(searchEmpType);
             }
             else
             {
-                System.out.println("No Employee by that first name");
+                System.out.println("Unknown Employee type");
             }
         }
     }
     
     //SALARY
     public void getAllSalary()
-    {finish here
-        String searchFName;
+    {
+        double searchSalary;
         System.out.println("Please enter the salary");
         
-        searchFName = userInput.next();
+        searchSalary = userInput.nextDouble();
         
-        for(int i = 0; i < JAVAMART.Employees.size(); i++)
-        {
-            if(JAVAMART.Employees.get(i).getFirstName() == searchFName)
-            {
-                System.out.print(JAVAMART.Employees.get(i).toString());
-            }
-            else
-            {
+        for (Employee Employee : JAVAMART.Employees) {
+            if (Employee.equals(searchSalary)) {
+                System.out.print(Employee.toString());
+            } else {
                 System.out.println("No Employee by that first name");
             }
         }
