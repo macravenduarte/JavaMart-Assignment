@@ -22,23 +22,35 @@ public class MainTabbedPageGui extends JFrame
         JTabbedPane tabPane = new JTabbedPane();
         
         //Employee tab
-        //tab1 label
+        //tab1 label & panel
         JLabel lblPanelOne = 
                     new JLabel("Employees", SwingConstants.CENTER);
         JPanel hrPanel = new JMHRPanel();
         //add the employee tab to the panel
         hrPanel.add(lblPanelOne);
-        tabPane.addTab("Employee Tab", null, hrPanel, "First Panel");
+        tabPane.addTab("Employee Tab", null, 
+                            hrPanel, "First Panel");
         
-        //tab2
+        //Products
+        //tab2 label & panel
         JLabel lblPanelTwo = 
                     new JLabel("Products", SwingConstants.CENTER);
-        JPanel productsPanel = 
-                    new JMProductsPanel();
+        JPanel productsPanel = new JMProductsPanel();
         //add the products tab to the panel
         productsPanel.add(lblPanelTwo);
-        tabPane.addTab("Products Tab",null, productsPanel, "Second Panel");
+        tabPane.addTab("Products Tab", null, 
+                            productsPanel, "Second Panel");
         
+        //Employee Search
+        //tab3 label & panel
+        JLabel lblPanelThree = 
+                    new JLabel("Employee Search", SwingConstants.CENTER);
+        JPanel empSearchPanel = new JMEmpSearchPanel();
+        //add the employess search tab to the panel
+        empSearchPanel.add(lblPanelThree);
+        tabPane.addTab("Employee Search Tab", null, 
+                            empSearchPanel, "Third Panel");
+
         //build the panels
         northPanel = new JMGreetingPanel();
         buildButtonPanel();
