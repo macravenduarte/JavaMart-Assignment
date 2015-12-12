@@ -44,7 +44,7 @@ public class JMHRPanel extends JPanel
     public JMHRPanel()
     {
         //set layout
-        setLayout (new GridLayout(5,2) );
+        setLayout (new GridLayout(5,1) );
         
         //labels
         lblFirstName = new JLabel ("First Name");

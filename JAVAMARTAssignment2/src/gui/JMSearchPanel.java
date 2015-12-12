@@ -7,12 +7,13 @@ import javax.swing.*;
  *
  * @author Marco Duarte
  */
-public class JMEmpSearchPanel extends JPanel
+public class JMSearchPanel extends JPanel
 {
 //local variables for components
     //labels
-    private final JLabel    lblSearchType, lblName,
-                             lblPosition, lblSalary;
+    private final JLabel    lblSearch, lblName,
+                            lblPosition, lblSalary,
+                            lblResult;
     
     //text field
     private final JTextField    txtSearch;
@@ -38,20 +39,21 @@ public class JMEmpSearchPanel extends JPanel
 //end of variable components
     
     //constructor
-    public JMEmpSearchPanel()
+    public JMSearchPanel()
     {
-        setLayout ( new GridLayout(0,2) );
+        setLayout ( new GridLayout(6,2) );
         
     //create 
         //labels
-        lblSearchType = new JLabel ("Search Type");
+        lblSearch = new JLabel ("Search");
         lblName = new JLabel ("Name");
+        //text area
+        lblResult = new JLabel ("Result");
+        txtResult = new JTextArea();
         lblPosition = new JLabel ("Position");
         lblSalary = new JLabel ("Salary");
         //text field
         txtSearch = new JTextField (2);
-        //text area
-        txtResult = new JTextArea(4,4);
         //combobox
         cmbName = new JComboBox<>(name);
         cmbPosition = new JComboBox<>(position);
@@ -62,8 +64,11 @@ public class JMEmpSearchPanel extends JPanel
         
     //add
         //SearchType
-        add(lblSearchType);
+        add(lblSearch);
         add(txtSearch);
+        //text area
+        add(lblResult);
+        add(txtResult);
         //FirstName
         add(lblName);
         add(cmbName);
@@ -73,8 +78,7 @@ public class JMEmpSearchPanel extends JPanel
         //Salary
         add(lblSalary);
         add(cmbSalary);
-        //text area
-        add(txtResult);
-    }//end of JMEmpSearchPanel constructor
+
+    }//end of JMSearchPanel constructor
     
 }//end of class

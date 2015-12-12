@@ -34,5 +34,7 @@ public class JAVAMART
         menu.getMainMenu();
        
     }//------end of main
-
+//make a accessor mthod to pass the array list items  and remove the static to the list
+    
+    
 }//------end of JAVAMART

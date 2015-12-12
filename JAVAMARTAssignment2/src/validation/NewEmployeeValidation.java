@@ -26,8 +26,13 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     private boolean validSelectionBool = false;
     
     //carriers for all valid employee information
-    private String firstName, lastName, gender, empType;
-    private int age, year, month, day, termYear, termMonth, termDay;
+    private String  firstName, lastName, 
+                    gender, empType = "";
+//NOTE: empType is blank, name can only be made once the 
+    //employee object type is created
+    private int age, year, month, day, 
+                termYear, termMonth, termDay;
+    
     private double baseSalary, hourlyRateSalary;
 //----------------------------------------------------------------------------//
 //CONTRUCTOR 
@@ -42,14 +47,15 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
         
         //validate the new information from the user and associate with 
         //the class variables
-        setBasicEmployeeInfo(firstName, lastName, gender, age, year, month, day);
+        setBasicEmployeeInfo(   firstName, lastName, gender,
+                                age, year, month, day);
         setBaseSalary(baseSalary);
         
         //add the new Fulltime employee to the EMPLOYEE Array List
         JAVAMART.Employees.add
             (new FullTimeEmployee
-                (firstName, lastName, gender, age, year, month, day, baseSalary, 
-                        empType));
+                (firstName, lastName, gender, age, 
+                        year, month, day, baseSalary, empType));
         
     }//end of GET NEW FULL TIME EMPLOYEE
 //----------------------------------------------------------------------------// 
@@ -58,14 +64,15 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     {
         //validate the new information from the user and associate with 
         //the class variables
-        setBasicEmployeeInfo(firstName, lastName, gender, age, year, month, day);
+        setBasicEmployeeInfo(   firstName, lastName, gender, age, 
+                                year, month, day);
         setHourlyRateSalary(hourlyRateSalary);
         
         //add the new Part time employee to the EMPLOYEE Array List
         JAVAMART.Employees.add
             (new PartTimeEmployee
-                (firstName, lastName, gender, age, year, 
-                            month, day, hourlyRateSalary, empType));
+                (   firstName, lastName, gender, age, year, 
+                    month, day, hourlyRateSalary, empType ) );
     }//end of NEW PART TIME EMPLOYEE
 //----------------------------------------------------------------------------//
     //NEW SEASONAL EMPLOYEE
@@ -73,15 +80,16 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
     {
         //validate the new information from the user and associate with 
         //the class variables
-        setBasicEmployeeInfo(firstName, lastName, gender, age, year, month, day);
+        setBasicEmployeeInfo(   firstName, lastName, gender, 
+                                age, year, month, day);
         setHourlyRateSalary(hourlyRateSalary);
         setTermDate(termYear, termMonth, termDay);
         
         //add the new Seasonal employee to the EMPLOYEE Array List
         JAVAMART.Employees.add
-                (new SeasonalEmployee
-                    (firstName, lastName, gender, age, year, month, day, 
-                    hourlyRateSalary, empType, termYear, termMonth, termDay));
+            (new SeasonalEmployee
+                (   firstName, lastName, gender, age, year, month, day, 
+                    hourlyRateSalary, empType, termYear, termMonth, termDay ) );
     }//end of NEW SEASONAL EMPLOYEE
 //----------------------------------------------------------------------------//
 //SET
@@ -267,7 +275,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
         } while(outerSelect);
         
     }//end of set Gender
-
+//----------------------------------------------------------------------------//    
     //AGE
     private void setAge(int age)
     {
@@ -396,7 +404,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
         }while(!validSelectionBool);
   
     }//end of SET YEAR
-//----------------------------------------------------------------------------//
+
     //MONTH
     private void setMonth(int month)
     {
@@ -460,7 +468,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
             
         }while(!validSelectionBool);
     }//end of SET MONTH
-//----------------------------------------------------------------------------//
+
     //DAY
     private void setDay(int day)
     {
@@ -524,7 +532,6 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
         }while(!validSelectionBool);
     }//end of SET DAY
 //----------------------------------------------------------------------------//
-//----------------------------------------------------------------------------// 
     //BASE SALARY validation for FULL TIME EMPLOYEES
     private void setBaseSalary(double baseSalary)
     {
@@ -658,6 +665,7 @@ public class NewEmployeeValidation extends NewEmployeeMenuValidation
             
         }while(validSelectionBool);
     }//end of SET HOURLY RATE
+        
 //----------------------------------------------------------------------------//    
     //TERMINATION year, month and day for SEASONAL EMPLOYEES   
     private void setTermDate(int termYear,int termMonth,int termDay)

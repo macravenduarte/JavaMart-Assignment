@@ -45,11 +45,10 @@ public class MainTabbedPageGui extends JFrame
         //tab3 label & panel
         JLabel lblPanelThree = 
                     new JLabel("Employee Search", SwingConstants.CENTER);
-        JPanel empSearchPanel = new JMEmpSearchPanel();
+        JPanel searchPanel = new JMSearchPanel();
         //add the employess search tab to the panel
-        empSearchPanel.add(lblPanelThree);
-        tabPane.addTab("Employee Search Tab", null, 
-                            empSearchPanel, "Third Panel");
+        searchPanel.add(lblPanelThree);
+        tabPane.addTab("Search Tab", null, searchPanel, "Third Panel");
 
         //build the panels
         northPanel = new JMGreetingPanel();
